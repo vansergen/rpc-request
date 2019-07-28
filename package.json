@@ -1,0 +1,28 @@
+{
+  "name": "rpc-request",
+  "version": "1.0.0",
+  "description": "RPC-request",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vansergen/rpc-request.git"
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "rpc",
+    "request"
+  ],
+  "author": "Sergey Bakulin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vansergen/rpc-request/issues"
+  },
+  "homepage": "https://github.com/vansergen/rpc-request#readme"
+}
