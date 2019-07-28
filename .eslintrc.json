@@ -1,0 +1,17 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019
+  },
+  "rules": {
+    "curly": "error",
+    "eqeqeq": "error",
+    "linebreak-style": "error",
+    "quotes": ["error", "single"],
+    "prefer-destructuring": "error",
+    "semi": "error"
+  }
+}
