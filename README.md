@@ -18,7 +18,9 @@ const url = 'http://localhost:8332';
 const headers = { 'content-type': 'text/plain' };
 const auth = { user: 'rpcuser', pass: 'rpcpass' };
 const rpc = new Client({ url, headers, auth, method: 'POST' });
-const info = await rpc.request({ body: JSON.stringify({ method: 'getwalletinfo'}) }));
+const info = await rpc.request({
+  body: JSON.stringify({ method: 'getwalletinfo' })
+});
 ```
 
 - [`request`](https://github.com/request/request#requestoptions-callback)
