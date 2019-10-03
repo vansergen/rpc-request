@@ -72,9 +72,10 @@ class Client {
 
   /**
    * @description Create a new cookie jar.
+   * @param cookieStore
    */
-  static jar() {
-    return request.jar();
+  static jar(cookieStore) {
+    return request.jar(cookieStore);
   }
 }
 
