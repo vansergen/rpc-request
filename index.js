@@ -41,6 +41,15 @@ class Client {
   }
 
   /**
+   * @param {string} key
+   * @param {string} value
+   * @description Create a new cookie.
+   */
+  static cookie(key, value) {
+    return request.cookie(key + '=' + value);
+  }
+
+  /**
    * @description Create a new cookie jar.
    */
   static jar() {
