@@ -1,7 +1,7 @@
 {
   "name": "rpc-request",
-  "version": "1.0.0",
-  "description": "RPC-request",
+  "version": "2.0.0",
+  "description": "Simple wrapper of the request-promise-native in a class",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^6.5.1",
     "prettier": "^1.18.2"
   },
   "keywords": [
