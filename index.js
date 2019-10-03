@@ -39,6 +39,13 @@ class Client {
       body: JSON.stringify(options)
     });
   }
+
+  /**
+   * @description Create a new cookie jar.
+   */
+  static jar() {
+    return request.jar();
+  }
 }
 
 module.exports = Client;
