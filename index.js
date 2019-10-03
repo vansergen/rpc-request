@@ -9,6 +9,52 @@ class Client {
   }
 
   /**
+   * @params {Object} [options={}]
+   */
+  async get({ ...options } = {}) {
+    return this.request({ ...options, method: 'GET' });
+  }
+
+  /**
+   * @params {Object} [options={}]
+   */
+  async post({ ...options } = {}) {
+    return this.request({ ...options, method: 'POST' });
+  }
+
+  /**
+   * @params {Object} [options={}]
+   */
+  async put({ ...options } = {}) {
+    return this.request({ ...options, method: 'PUT' });
+  }
+
+  /**
+   * @params {Object} [options={}]
+   */
+  async patch({ ...options } = {}) {
+    return this.request({ ...options, method: 'PATCH' });
+  }
+
+  /**
+   * @params {Object} [options={}]
+   */
+  async delete({ ...options } = {}) {
+    return this.request({ ...options, method: 'DELETE' });
+  }
+
+  /**
+   * @params {Object} [options={}]
+   */
+  async head({ ...options } = {}) {
+    return this.request({ ...options, method: 'HEAD' });
+  }
+
+  async options({ ...options } = {}) {
+    return this.request({ ...options, method: 'OPTIONS' });
+  }
+
+  /**
    * @params {Object} options
    */
   async request(options) {
