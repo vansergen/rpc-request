@@ -1,5 +1,7 @@
 # rpc-request
 
+`rpc-request` is a simple wrapper of the [`request-promise-native`](https://github.com/request/request-promise-native) library in a class.
+
 ## Installation
 
 ```bash
@@ -8,27 +10,81 @@ npm install rpc-request
 
 ## Usage
 
-```javascript
-const url = 'http://localhost';
-const port = 8332;
-const user = 'rpcuser';
-const pass = 'rpcpass';
-const timeout = 12000;
-const type = 'text/plain';
+Please refer to the [`request` documentation](https://github.com/request/request#requestdefaultsoptions) for the full list of all supported options you can pass to the constructor.
 
+```javascript
 const Client = require('rpc-request');
-const client = new Client({ url, port, user, pass, timeout, type });
+const url = 'http://localhost:8332';
+const headers = { 'content-type': 'text/plain' };
+const auth = { user: 'rpcuser', pass: 'rpcpass' };
+const rpc = new Client({ url, headers, auth, method: 'POST' });
+const info = await rpc.request({ body: JSON.stringify({ method: 'getwalletinfo'}) }));
 ```
 
-- `request`
+- [`request`](https://github.com/request/request#requestoptions-callback)
 
 ```javascript
-const method = 'getnewaddress';
-const label = 'SomeLabel';
-const address_type = 'bech32';
-const params = [label, address_type];
-const jsonrpc = '1.0';
-const id = 'rpc-request';
+await rpc.request(options);
+```
 
-await client.request({ method, label, address_type, params, jsonrpc, id });
+The following convenience methods correspond to HTTP request methods.
+
+- `get`
+
+```javascript
+await rpc.get(options);
+```
+
+- `post`
+
+```javascript
+await rpc.post(options);
+```
+
+- `put`
+
+```javascript
+await rpc.put(options);
+```
+
+- `patch`
+
+```javascript
+await rpc.patch(options);
+```
+
+- `delete`
+
+```javascript
+await rpc.delete(options);
+```
+
+- `head`
+
+```javascript
+await rpc.head(options);
+```
+
+- `options`
+
+```javascript
+await rpc.options(options);
+```
+
+The following static methods are also available to manage cookies:
+
+- [`cookie`](https://github.com/request/request/#requestcookie)
+
+```javascript
+// creates a new cookie.
+const key = 'key';
+const value = 'value';
+const myCookie = Client.cookie(key, value);
+```
+
+- [`jar`](https://github.com/request/request/#requestjar)
+
+```javascript
+// creates a new cookie jar.
+const myJar = Client.jar();
 ```
