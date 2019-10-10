@@ -1,11 +1,11 @@
-let request = require('request-promise-native');
+const request = require('request-promise-native');
 
 class Client {
   /**
    * @params {Object} [options={}]
    */
   constructor({ ...options } = {}) {
-    request = request.defaults(options);
+    this.defaults = options;
   }
 
   /**
@@ -58,7 +58,7 @@ class Client {
    * @params {Object} options
    */
   async request(options) {
-    return request(options);
+    return this.defaults(options);
   }
 
   /**
@@ -76,6 +76,14 @@ class Client {
    */
   static jar(cookieStore) {
     return request.jar(cookieStore);
+  }
+
+  get defaults() {
+    return request.defaults(this._rpoptions);
+  }
+
+  set defaults(options) {
+    this._rpoptions = options;
   }
 }
 
