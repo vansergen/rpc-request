@@ -14,7 +14,7 @@
   "scripts": {
     "prettier": "prettier -l index.ts",
     "lint": "eslint --ext .ts ./",
-    "build": "tsc"
+    "install": "tsc"
   },
   "types": "index.d.ts",
   "dependencies": {

@@ -3,6 +3,5 @@ node_js:
   - stable
   - lts/*
 script:
-  - npm run build
   - npm run prettier
   - npm run lint
