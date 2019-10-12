@@ -3,10 +3,19 @@
   "version": "2.1.0",
   "description": "Simple wrapper of the request-promise-native in a class",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vansergen/rpc-request.git"
   },
+  "engines": {
+    "node": ">=10.16.3"
+  },
+  "scripts": {
+    "prettier": "prettier -l index.ts",
+    "lint": "eslint --ext .ts ./",
+  },
+  "types": "index.d.ts",
   "dependencies": {
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
