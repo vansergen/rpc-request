@@ -19,6 +19,7 @@
     "linebreak-style": "error",
     "quotes": ["error", "single"],
     "prefer-destructuring": "error",
-    "semi": "error"
+    "semi": "error",
+    "quotes": "off"
   }
 }
