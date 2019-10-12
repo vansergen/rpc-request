@@ -14,15 +14,20 @@
   "scripts": {
     "prettier": "prettier -l index.ts",
     "lint": "eslint --ext .ts ./",
+    "build": "tsc"
   },
   "types": "index.d.ts",
   "dependencies": {
+    "@types/request-promise-native": "^1.0.17",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
     "eslint": "^6.5.1",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
   },
   "keywords": [
     "rpc",
