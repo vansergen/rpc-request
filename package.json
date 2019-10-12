@@ -1,19 +1,33 @@
 {
   "name": "rpc-request",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Simple wrapper of the request-promise-native in a class",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vansergen/rpc-request.git"
   },
+  "engines": {
+    "node": ">=10.16.3"
+  },
+  "scripts": {
+    "prettier": "prettier -l index.ts",
+    "lint": "eslint --ext .ts ./",
+    "install": "tsc"
+  },
+  "types": "index.d.ts",
   "dependencies": {
+    "@types/request-promise-native": "^1.0.17",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
     "eslint": "^6.5.1",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
   },
   "keywords": [
     "rpc",
