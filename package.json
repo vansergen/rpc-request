@@ -17,6 +17,7 @@
     "build": "tsc",
     "lint": "eslint --ext .ts,.js ./",
     "lint-fix": "npm run lint -- --fix",
+    "prepublishOnly": "npm run prettier && npm run lint && npm run build && npm run prettier-write && npm run lint-fix"
   },
   "types": "index.d.ts",
   "dependencies": {
