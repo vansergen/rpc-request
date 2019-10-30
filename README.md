@@ -13,13 +13,13 @@ npm install rpc-request
 Please refer to the [`request` documentation](https://github.com/request/request#requestdefaultsoptions) for the full list of all supported options you can pass to the constructor.
 
 ```javascript
-const { RPC } = require('rpc-request');
-const url = 'http://localhost:8332';
-const headers = { 'content-type': 'text/plain' };
-const auth = { user: 'rpcuser', pass: 'rpcpass' };
-const rpc = new RPC({ url, headers, auth, method: 'POST' });
+const { RPC } = require("rpc-request");
+const url = "http://localhost:8332";
+const headers = { "content-type": "text/plain" };
+const auth = { user: "rpcuser", pass: "rpcpass" };
+const rpc = new RPC({ url, headers, auth, method: "POST" });
 const info = await rpc.request({
-  body: JSON.stringify({ method: 'getwalletinfo' })
+  body: JSON.stringify({ method: "getwalletinfo" })
 });
 ```
 
@@ -79,8 +79,8 @@ The following static methods are also available to manage cookies:
 
 ```javascript
 // creates a new cookie.
-const key = 'key';
-const value = 'value';
+const key = "key";
+const value = "value";
 const myCookie = RPC.cookie(key, value);
 ```
 

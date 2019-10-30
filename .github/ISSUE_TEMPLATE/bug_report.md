@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: '[BUG]'
+title: "[BUG]"
 labels: bug
 assignees: vansergen
 ---
@@ -13,7 +13,7 @@ A clear and concise description of what the bug is.
 Steps to reproduce the behavior (add some code):
 
 ```typescript
-import { RPC } from 'rpc-request';
+import { RPC } from "rpc-request";
 // more code
 ```
 
