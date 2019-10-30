@@ -15,7 +15,7 @@
     "prettier": "prettier -c *.{js,md,ts,json} **/*.{js,md,ts,json}",
     "prettier-write": "npm run prettier -- --write",
     "build": "tsc",
-    "lint": "eslint --ext .ts ./",
+    "lint": "eslint --ext .ts,.js ./",
     "lint-fix": "npm run lint -- --fix",
   },
   "types": "index.d.ts",
