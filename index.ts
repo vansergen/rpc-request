@@ -1,4 +1,4 @@
-import * as request from 'request-promise-native';
+import * as request from "request-promise-native";
 
 export type RPCOtpions = request.RequestPromiseOptions | request.Options;
 
@@ -15,49 +15,49 @@ export class RPC {
    * @params {Object} [options]
    */
   async get(options: RPCOtpions = {}) {
-    return this.request({ ...options, method: 'GET' });
+    return this.request({ ...options, method: "GET" });
   }
 
   /**
    * @params {Object} [options]
    */
   async post(options: RPCOtpions = {}) {
-    return this.request({ ...options, method: 'POST' });
+    return this.request({ ...options, method: "POST" });
   }
 
   /**
    * @params {Object} [options]
    */
   async put(options: RPCOtpions = {}) {
-    return this.request({ ...options, method: 'PUT' });
+    return this.request({ ...options, method: "PUT" });
   }
 
   /**
    * @params {Object} [options]
    */
   async patch(options: RPCOtpions = {}) {
-    return this.request({ ...options, method: 'PATCH' });
+    return this.request({ ...options, method: "PATCH" });
   }
 
   /**
    * @params {Object} [options]
    */
   async delete(options: RPCOtpions = {}) {
-    return this.request({ ...options, method: 'DELETE' });
+    return this.request({ ...options, method: "DELETE" });
   }
 
   /**
    * @params {Object} [options]
    */
   async head(options: RPCOtpions = {}) {
-    return this.request({ ...options, method: 'HEAD' });
+    return this.request({ ...options, method: "HEAD" });
   }
 
   /**
    * @params {Object} [options]
    */
   async options(options: RPCOtpions = {}) {
-    return this.request({ ...options, method: 'OPTIONS' });
+    return this.request({ ...options, method: "OPTIONS" });
   }
 
   /**
@@ -73,7 +73,7 @@ export class RPC {
    * @description Create a new cookie.
    */
   static cookie(key: string, value: string) {
-    return request.cookie(key + '=' + value);
+    return request.cookie(key + "=" + value);
   }
 
   /**
@@ -101,11 +101,11 @@ export class RPC {
     options: RPCOtpions,
     rpoptions: RPCOtpions
   ): request.Options {
-    if (!('url' in options || 'uri' in options)) {
-      if (!('url' in rpoptions || 'uri' in rpoptions)) {
-        throw new Error('options.uri is a required argument');
+    if (!("url" in options || "uri" in options)) {
+      if (!("url" in rpoptions || "uri" in rpoptions)) {
+        throw new Error("options.uri is a required argument");
       }
-      if ('uri' in rpoptions) {
+      if ("uri" in rpoptions) {
         return { ...options, uri: rpoptions.uri };
       }
       return { ...options, uri: rpoptions.url };
