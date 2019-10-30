@@ -12,7 +12,8 @@
     "node": ">=10.16.3"
   },
   "scripts": {
-    "prettier": "prettier -l index.ts",
+    "prettier": "prettier -c *.{js,md,ts,json} **/*.{js,md,ts,json}",
+    "prettier-write": "npm run prettier -- --write",
     "lint": "eslint --ext .ts ./",
     "install": "tsc"
   },
