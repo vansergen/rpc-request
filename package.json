@@ -1,6 +1,6 @@
 {
   "name": "rpc-request",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Simple wrapper of the request-promise-native in a class",
   "main": "index.js",
   "type": "module",
