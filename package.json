@@ -3,7 +3,6 @@
   "version": "3.1.1",
   "description": "Simple wrapper of the request-promise-native in a class",
   "main": "index.js",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vansergen/rpc-request.git"
