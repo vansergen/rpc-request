@@ -1,102 +1,67 @@
 import * as request from "request-promise-native";
+import { Cookie, CookieJar } from "request";
 
 export type RPCOtpions = request.RequestPromiseOptions | request.Options;
 
 export class RPC {
   _rpoptions: RPCOtpions;
-  /**
-   * @params {Object} [options]
-   */
+
   constructor(options: RPCOtpions = {}) {
     this._rpoptions = options;
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async get(options: RPCOtpions = {}) {
+  async get(options: RPCOtpions = {}): Promise<any> {
     return this.request({ ...options, method: "GET" });
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async post(options: RPCOtpions = {}) {
+  async post(options: RPCOtpions = {}): Promise<any> {
     return this.request({ ...options, method: "POST" });
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async put(options: RPCOtpions = {}) {
+  async put(options: RPCOtpions = {}): Promise<any> {
     return this.request({ ...options, method: "PUT" });
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async patch(options: RPCOtpions = {}) {
+  async patch(options: RPCOtpions = {}): Promise<any> {
     return this.request({ ...options, method: "PATCH" });
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async delete(options: RPCOtpions = {}) {
+  async delete(options: RPCOtpions = {}): Promise<any> {
     return this.request({ ...options, method: "DELETE" });
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async head(options: RPCOtpions = {}) {
+  async head(options: RPCOtpions = {}): Promise<any> {
     return this.request({ ...options, method: "HEAD" });
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async options(options: RPCOtpions = {}) {
+  async options(options: RPCOtpions = {}): Promise<any> {
     return this.request({ ...options, method: "OPTIONS" });
   }
 
-  /**
-   * @params {Object} [options]
-   */
-  async request(options: RPCOtpions = {}) {
+  async request(options: RPCOtpions = {}): Promise<any> {
     return this.defaults(RPC.prepareOptions(options, this._rpoptions));
   }
 
   /**
-   * @param {string} key
-   * @param {string} value
-   * @description Create a new cookie.
+   * Create a new cookie
    */
-  static cookie(key: string, value: string) {
+  static cookie(key: string, value: string): Cookie | undefined {
     return request.cookie(key + "=" + value);
   }
 
   /**
-   * @description Create a new cookie jar.
-   * @param [cookieStore]
+   * Create a new cookie jar
    */
-  static jar(cookieStore?: any) {
+  static jar(cookieStore?: any): CookieJar {
     return request.jar(cookieStore);
   }
 
-  /**
-   * @params {Object} [options]
-   */
   static defaults(
     options: request.RequestPromiseOptions = {}
   ): request.RequestPromiseAPI {
     return request.defaults(options);
   }
 
-  /**
-   * @params {Object} options
-   * @params {Object} rpoptions
-   */
   static prepareOptions(
     options: RPCOtpions,
     rpoptions: RPCOtpions
