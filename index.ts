@@ -1,44 +1,44 @@
 import * as request from "request-promise-native";
 import { Cookie, CookieJar } from "request";
 
-export type RPCOtpions = request.RequestPromiseOptions | request.Options;
+export type RPCOptions = request.RequestPromiseOptions | request.Options;
 
 export class RPC {
-  _rpoptions: RPCOtpions;
+  readonly _rpoptions: RPCOptions;
 
-  constructor(options: RPCOtpions = {}) {
+  constructor(options: RPCOptions = {}) {
     this._rpoptions = options;
   }
 
-  async get(options: RPCOtpions = {}): Promise<any> {
+  async get(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "GET" });
   }
 
-  async post(options: RPCOtpions = {}): Promise<any> {
+  async post(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "POST" });
   }
 
-  async put(options: RPCOtpions = {}): Promise<any> {
+  async put(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "PUT" });
   }
 
-  async patch(options: RPCOtpions = {}): Promise<any> {
+  async patch(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "PATCH" });
   }
 
-  async delete(options: RPCOtpions = {}): Promise<any> {
+  async delete(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "DELETE" });
   }
 
-  async head(options: RPCOtpions = {}): Promise<any> {
+  async head(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "HEAD" });
   }
 
-  async options(options: RPCOtpions = {}): Promise<any> {
+  async options(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "OPTIONS" });
   }
 
-  async request(options: RPCOtpions = {}): Promise<any> {
+  async request(options: RPCOptions = {}): Promise<any> {
     return this.defaults(RPC.prepareOptions(options, this._rpoptions));
   }
 
@@ -63,8 +63,8 @@ export class RPC {
   }
 
   static prepareOptions(
-    options: RPCOtpions,
-    rpoptions: RPCOtpions
+    options: RPCOptions,
+    rpoptions: RPCOptions
   ): request.Options {
     if (!("url" in options || "uri" in options)) {
       if (!("url" in rpoptions || "uri" in rpoptions)) {
