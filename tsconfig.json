@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "target": "esnext",
     "module": "commonjs",
     "declaration": true,
     "declarationMap": true,
+    "outDir": "./build",
+    "newLine": "lf",
     "sourceMap": true,
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node"
+    "noFallthroughCasesInSwitch": true
   }
 }
