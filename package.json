@@ -11,12 +11,13 @@
     "node": ">=10.16.3"
   },
   "scripts": {
-    "prettier": "prettier -c *.{js,md,ts,json} **/*.{js,md,ts,json}",
+    "prettier": "prettier -c **/*.{js,md,ts,json}",
     "prettier-write": "npm run prettier -- --write",
     "build": "tsc",
     "lint": "eslint --ext .ts,.js ./",
     "lint-fix": "npm run lint -- --fix",
-    "prepublishOnly": "npm run prettier && npm run lint && npm run build && npm run prettier-write && npm run lint-fix"
+    "prepublishOnly": "npm run prettier && npm run lint && npm run build && npm run prettier-write && npm run lint-fix",
+    "postpublish": "rm -fr build"
   },
   "types": "index.d.ts",
   "dependencies": {
