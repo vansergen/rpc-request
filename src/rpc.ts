@@ -34,7 +34,7 @@ export class RPC {
     return this.request({ ...options, method: "HEAD" });
   }
 
-  options(options: RPCOptions = {}): Promise<any> {
+  options(options: RPCOptions = {}): request.RequestPromise<any> {
     return this.request({ ...options, method: "OPTIONS" });
   }
 
