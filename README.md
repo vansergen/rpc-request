@@ -13,14 +13,17 @@ npm install rpc-request
 Please refer to the [`request` documentation](https://github.com/request/request#requestdefaultsoptions) for the full list of all supported options you can pass to the constructor.
 
 ```javascript
-const { RPC } = require("rpc-request");
-const url = "http://localhost:8332";
-const headers = { "content-type": "text/plain" };
-const auth = { user: "rpcuser", pass: "rpcpass" };
-const rpc = new RPC({ url, headers, auth, method: "POST" });
-const info = await rpc.request({
-  body: JSON.stringify({ method: "getwalletinfo" })
-});
+import { RPC } from "rpc-request";
+class MyClass extends RPC {
+  constructor() {
+    super({ uri: "http://worldtimeapi.org/api/ip", json: true });
+  }
+}
+const myClass = new MyClass();
+myClass
+  .get()
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
 ```
 
 - [`request`](https://github.com/request/request#requestoptions-callback)
