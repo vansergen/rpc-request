@@ -1,6 +1,6 @@
 {
   "name": "rpc-request",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "Simple wrapper of the request-promise-native in a class",
   "main": "build/index.js",
   "type": "commonjs",
@@ -13,7 +13,7 @@
     "node": ">=8.16.2"
   },
   "scripts": {
-    "prettier": "prettier -c **/*.{js,md,ts,json}",
+    "prettier": "prettier -c '**/*.{js,md,ts,json}'",
     "prettier-write": "npm run prettier -- --write",
     "build": "tsc",
     "lint": "eslint --ext .ts,.js ./",
