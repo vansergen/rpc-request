@@ -10,36 +10,36 @@ export class RPC {
     this._rpoptions = options;
   }
 
-  get(options: RPCOptions = {}): request.RequestPromise<any> {
+  get(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "GET" });
   }
 
-  post(options: RPCOptions = {}): request.RequestPromise<any> {
+  post(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "POST" });
   }
 
-  put(options: RPCOptions = {}): request.RequestPromise<any> {
+  put(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "PUT" });
   }
 
-  patch(options: RPCOptions = {}): request.RequestPromise<any> {
+  patch(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "PATCH" });
   }
 
-  delete(options: RPCOptions = {}): request.RequestPromise<any> {
+  delete(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "DELETE" });
   }
 
-  head(options: RPCOptions = {}): request.RequestPromise<any> {
+  head(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "HEAD" });
   }
 
-  options(options: RPCOptions = {}): request.RequestPromise<any> {
+  options(options: RPCOptions = {}): Promise<any> {
     return this.request({ ...options, method: "OPTIONS" });
   }
 
-  request(options: RPCOptions = {}): request.RequestPromise<any> {
-    return this.defaults(RPC.prepareOptions(options, this._rpoptions));
+  async request(options: RPCOptions = {}): Promise<any> {
+    return await this.defaults(RPC.prepareOptions(options, this._rpoptions));
   }
 
   /**
