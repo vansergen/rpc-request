@@ -44,6 +44,16 @@
     "url": "https://github.com/vansergen/rpc-request/issues"
   },
   "homepage": "https://github.com/vansergen/rpc-request#readme",
+  "lint-staged": {
+    "*.{js,ts,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{ts,js}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "funding": {
     "type": "Coinbase Commerce",
     "url": "https://commerce.coinbase.com/checkout/32948818-f4bb-4087-ae5e-1d29ecb86e64"
