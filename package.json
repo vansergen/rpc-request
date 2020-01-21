@@ -16,6 +16,7 @@
     "prettier": "prettier -c \"**/*.{js,md,ts,json}\"",
     "prettier-write": "npm run prettier -- --write",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "fresh-install": "rm -fr node_modules && rm -f package-lock.json && npm install",
     "build": "tsc",
     "test": "mocha -r ts-node/register --full-trace --ui tdd --bail test/*.spec.ts",
     "lint": "eslint --ext .ts,.js ./",
