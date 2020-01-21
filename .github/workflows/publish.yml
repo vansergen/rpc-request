@@ -23,7 +23,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - uses: actions/setup-node@v1
         with:
-        registry-url: "https://npm.pkg.github.com"
+          registry-url: "https://npm.pkg.github.com"
       - name: Publish to GitHub Packages
         run: npm publish
         env:
