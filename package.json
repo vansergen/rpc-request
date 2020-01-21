@@ -15,6 +15,7 @@
   "scripts": {
     "prettier": "prettier -c '**/*.{js,md,ts,json}'",
     "prettier-write": "npm run prettier -- --write",
+    "coverage": "nyc npm test && nyc report --reporter=lcov",
     "build": "tsc",
     "test": "mocha -r ts-node/register --full-trace --ui tdd --bail test/*.spec.ts",
     "lint": "eslint --ext .ts,.js ./",
