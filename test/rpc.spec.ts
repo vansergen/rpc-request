@@ -118,6 +118,17 @@ suite("RPC", () => {
     assert.deepStrictEqual(request, { result });
   });
 
+  test(".request() (rejected promise)", done => {
+    const client = new RPC({ url: "get", ...options });
+    client
+      .request({ method: "POST" })
+      .then(() => assert.fail("Should reject the promise"))
+      .catch(error => {
+        assert.deepStrictEqual(error.message, "404 - undefined");
+        done();
+      });
+  });
+
   suite("Static methods", () => {
     test(".cookie()", () => {
       const _key = "SameSite";

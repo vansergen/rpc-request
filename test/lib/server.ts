@@ -1,13 +1,14 @@
 import * as http from "http";
-import * as assert from "assert";
 
 export const server = http.createServer((request, response) => {
   const { url, method } = request;
   if (!url || !method) {
     throw new Error("`url` or `method` is missing");
+  } else if (url.substring(1) === method.toLowerCase()) {
+    response.statusCode = 200;
+  } else {
+    return (response.statusCode = 404) && response.end();
   }
-  assert.deepStrictEqual(url.substring(1), method.toLowerCase());
-  response.statusCode = 200;
   if (method === "HEAD") {
     return response.end();
   }
