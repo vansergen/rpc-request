@@ -38,8 +38,12 @@ export class RPC {
     return this.request({ ...options, method: "OPTIONS" });
   }
 
-  async request(options: RPCOptions = {}): Promise<any> {
-    return await this.defaults(RPC.prepareOptions(options, this._rpoptions));
+  request(options: RPCOptions = {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.defaults(RPC.prepareOptions(options, this._rpoptions))
+        .then(data => resolve(data))
+        .catch(error => reject(error));
+    });
   }
 
   /**
