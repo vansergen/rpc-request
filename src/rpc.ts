@@ -78,7 +78,7 @@ export class RPC {
     return options;
   }
 
-  get defaults(): request.RequestPromiseAPI {
+  private get defaults(): request.RequestPromiseAPI {
     return RPC.defaults(this._rpoptions);
   }
 }
