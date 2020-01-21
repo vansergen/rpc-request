@@ -1,4 +1,4 @@
-# rpc-request
+# rpc-request ![GitHub version](https://badge.fury.io/gh/vansergen%2Frpc-request.svg) ![Node version](https://img.shields.io/node/v/rpc-request) [![Known Vulnerabilities](https://snyk.io/test/github/vansergen/rpc-request/badge.svg)](https://snyk.io/test/github/vansergen/rpc-request) ![NPM license](https://img.shields.io/npm/l/rpc-request) ![npm downloads](https://img.shields.io/npm/dt/rpc-request) ![GitHub top language](https://img.shields.io/github/languages/top/vansergen/rpc-request)
 
 `rpc-request` is a simple wrapper of the [`request-promise-native`](https://github.com/request/request-promise-native) library in a class.
 
