@@ -16,6 +16,7 @@
     "prettier": "prettier -c '**/*.{js,md,ts,json}'",
     "prettier-write": "npm run prettier -- --write",
     "build": "tsc",
+    "test": "mocha -r ts-node/register --full-trace --ui tdd --bail test/*.spec.ts",
     "lint": "eslint --ext .ts,.js ./",
     "lint-fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run prettier && npm run lint && npm run build && npm run prettier-write && npm run lint-fix",
@@ -66,5 +67,8 @@
   "funding": {
     "type": "Coinbase Commerce",
     "url": "https://commerce.coinbase.com/checkout/32948818-f4bb-4087-ae5e-1d29ecb86e64"
+  },
+  "directories": {
+    "test": "test"
   }
 }
