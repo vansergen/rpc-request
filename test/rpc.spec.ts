@@ -104,16 +104,18 @@ suite("RPC", () => {
       const options1 = { baseUrl: "someurl", json: true };
       const options2 = { baseUrl: "otherurl", json: false };
       const options3 = { uri: "uri" };
+      const options4 = { url: "url" };
       const error = new Error("options.uri is a required argument");
       assert.throws(() => {
         RPC.prepareOptions(options1, options2);
       }, error);
 
       let result = RPC.prepareOptions(options1, options3);
-      assert.deepStrictEqual(result, { ...options1, ...options3 });
-
+      assert.deepStrictEqual(result, { ...options1, uri: options3.uri });
       result = RPC.prepareOptions(options3, options2);
       assert.deepStrictEqual(result, options3);
+      result = RPC.prepareOptions(options2, options4);
+      assert.deepStrictEqual(result, { ...options2, uri: options4.url });
     });
   });
 
