@@ -15,9 +15,20 @@ suite("RPC", () => {
     assert.deepStrictEqual(client._rpoptions, options);
   });
 
+  test("constructor (with no arguments)", () => {
+    const client = new RPC();
+    assert.deepStrictEqual(client._rpoptions, {});
+  });
+
   test(".get()", async () => {
     const client = new RPC(options);
     const request = await client.get({ url: "get" });
+    assert.deepStrictEqual(request, { result });
+  });
+
+  test(".get() (with no arguments)", async () => {
+    const client = new RPC({ url: "get", ...options });
+    const request = await client.get();
     assert.deepStrictEqual(request, { result });
   });
 
@@ -27,9 +38,21 @@ suite("RPC", () => {
     assert.deepStrictEqual(request, { result });
   });
 
+  test(".post() (with no arguments)", async () => {
+    const client = new RPC({ url: "post", ...options });
+    const request = await client.post();
+    assert.deepStrictEqual(request, { result });
+  });
+
   test(".put()", async () => {
     const client = new RPC(options);
     const request = await client.put({ url: "put" });
+    assert.deepStrictEqual(request, { result });
+  });
+
+  test(".put() (with no arguments)", async () => {
+    const client = new RPC({ url: "put", ...options });
+    const request = await client.put();
     assert.deepStrictEqual(request, { result });
   });
 
@@ -39,9 +62,21 @@ suite("RPC", () => {
     assert.deepStrictEqual(request, { result });
   });
 
+  test(".patch() (with no arguments)", async () => {
+    const client = new RPC({ url: "patch", ...options });
+    const request = await client.patch();
+    assert.deepStrictEqual(request, { result });
+  });
+
   test(".delete()", async () => {
     const client = new RPC(options);
     const request = await client.delete({ url: "delete" });
+    assert.deepStrictEqual(request, { result });
+  });
+
+  test(".delete() (with no arguments)", async () => {
+    const client = new RPC({ url: "delete", ...options });
+    const request = await client.delete();
     assert.deepStrictEqual(request, { result });
   });
 
@@ -52,15 +87,34 @@ suite("RPC", () => {
     assert.deepStrictEqual(connection, "close");
   });
 
+  test(".head() (with no arguments)", async () => {
+    const client = new RPC({ url: "head", ...options });
+    const { connection, date } = await client.head();
+    assert.ok(Date.now() - new Date(date).getDate() > 0);
+    assert.deepStrictEqual(connection, "close");
+  });
+
   test(".options()", async () => {
     const client = new RPC(options);
     const request = await client.options({ url: "options" });
     assert.deepStrictEqual(request, { result });
   });
 
+  test(".options() (with no arguments)", async () => {
+    const client = new RPC({ url: "options", ...options });
+    const request = await client.options();
+    assert.deepStrictEqual(request, { result });
+  });
+
   test(".request()", async () => {
     const client = new RPC(options);
     const request = await client.request({ url: "get" });
+    assert.deepStrictEqual(request, { result });
+  });
+
+  test(".request() (with no arguments)", async () => {
+    const client = new RPC({ url: "get", ...options });
+    const request = await client.request();
     assert.deepStrictEqual(request, { result });
   });
 
@@ -97,6 +151,12 @@ suite("RPC", () => {
     test(".defaults()", async () => {
       const d = RPC.defaults(options);
       const request = await d("/get");
+      assert.deepStrictEqual(request, { result });
+    });
+
+    test(".defaults() (with no arguments)", async () => {
+      const d = RPC.defaults();
+      const request = await d("/get", options);
       assert.deepStrictEqual(request, { result });
     });
 
