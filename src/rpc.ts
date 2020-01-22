@@ -39,11 +39,9 @@ export class RPC {
   }
 
   request(options: RPCOptions = {}): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.defaults(RPC.prepareOptions(options, this._rpoptions))
-        .then(data => resolve(data))
-        .catch(error => reject(error));
-    });
+    return this.defaults(
+      RPC.prepareOptions(options, this._rpoptions)
+    ).promise();
   }
 
   /**
