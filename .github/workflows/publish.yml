@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node: 12
+          node-version: 12
           registry-url: "https://registry.npmjs.org"
       - name: Node.js version
         run: node -v
