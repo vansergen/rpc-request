@@ -1,6 +1,6 @@
 {
   "name": "rpc-request",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Simple wrapper of the request-promise-native in a class",
   "main": "build/index.js",
   "type": "commonjs",
@@ -35,8 +35,8 @@
     "@typescript-eslint/parser": "^2.17.0",
     "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
-    "husky": "^4.0.10",
-    "lint-staged": "^10.0.1",
+    "husky": "^4.2.0",
+    "lint-staged": "^10.0.2",
     "mocha": "^7.0.0",
     "nyc": "^15.0.0",
     "prettier": "^1.19.1",
