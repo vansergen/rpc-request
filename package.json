@@ -1,6 +1,6 @@
 {
   "name": "rpc-request",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "description": "Simple wrapper of the request-promise-native in a class",
   "main": "build/index.js",
   "type": "commonjs",
@@ -17,7 +17,7 @@
     "prettier-write": "npm run prettier -- --write",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "fresh-install": "rm -fr node_modules && rm -f package-lock.json && npm install",
-    "build": "tsc",
+    "build": "rm -fr build && tsc",
     "test": "mocha -r ts-node/register --full-trace --ui tdd --bail test/*.spec.ts",
     "lint": "eslint --ext .ts,.js ./",
     "lint-fix": "npm run lint -- --fix",
@@ -26,22 +26,22 @@
   },
   "dependencies": {
     "@types/request-promise-native": "^1.0.17",
-    "request": "^2.88.0",
+    "request": "^2.88.2",
     "request-promise-native": "^1.0.8"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@typescript-eslint/eslint-plugin": "^2.17.0",
-    "@typescript-eslint/parser": "^2.17.0",
-    "coveralls": "^3.0.9",
+    "@types/mocha": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "coveralls": "^3.0.11",
     "eslint": "^6.8.0",
-    "husky": "^4.2.0",
-    "lint-staged": "^10.0.2",
-    "mocha": "^7.0.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "mocha": "^7.1.1",
     "nyc": "^15.0.0",
     "prettier": "^1.19.1",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "ts-node": "^8.7.0",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "rpc",
