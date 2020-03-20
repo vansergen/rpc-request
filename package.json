@@ -17,7 +17,7 @@
     "prettier-write": "npm run prettier -- --write",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "fresh-install": "rm -fr node_modules && rm -f package-lock.json && npm install",
-    "build": "tsc",
+    "build": "rm -fr build && tsc",
     "test": "mocha -r ts-node/register --full-trace --ui tdd --bail test/*.spec.ts",
     "lint": "eslint --ext .ts,.js ./",
     "lint-fix": "npm run lint -- --fix",

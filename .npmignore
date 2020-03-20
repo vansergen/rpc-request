@@ -1,0 +1,8 @@
+src
+test
+tsconfig.json
+index.ts
+CODE_OF_CONDUCT.md
+.github
+.eslintrc.json
+.gitattributes
