@@ -1,8 +1,8 @@
-./src
-test
+src/
+test/
 tsconfig.json
 index.ts
 CODE_OF_CONDUCT.md
-.github
+.github/
 .eslintrc.json
 .gitattributes
