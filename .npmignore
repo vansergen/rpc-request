@@ -1,8 +1,11 @@
 src/
 test/
+coverage/
 tsconfig.json
 index.ts
 CODE_OF_CONDUCT.md
 .github/
 .eslintrc.json
 .gitattributes
+.nyc_output
+.snyk
