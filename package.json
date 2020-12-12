@@ -13,18 +13,23 @@
     "node": ">=10.18.1"
   },
   "scripts": {
-    "prettier": "prettier -c \"**/*.{js,md,ts,json}\"",
-    "prettier-write": "npm run prettier -- --write",
+    "build": "npm run build:remove && tsc",
+    "build:remove": "rm -rf ./build",
+    "build:test": "npm run build && npm run build:remove",
+    "commitlint": "commitlint --verbose",
+    "commitlint:all": "npm run commitlint -- --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
-    "fresh-install": "rm -fr node_modules && rm -f package-lock.json && npm install",
-    "build": "rm -fr build && tsc",
-    "test": "mocha -r ts-node/register --full-trace --ui tdd --bail test/*.spec.ts",
+    "install:clean": "rm -fr node_modules && rm -f package-lock.json && npm install",
     "lint": "eslint --ext .ts ./",
     "lint:fix": "npm run lint -- --fix",
-    "prepublishOnly": "npm run prettier && npm run lint && npm run build && npm run prettier-write && npm run lint-fix",
-    "postpublish": "rm -fr build",
-    "snyk-protect": "npx snyk protect",
-    "prepare": "npm run snyk-protect"
+    "postpublish": "npm run build:remove",
+    "prepublishOnly": "npm run build && npm run lint:fix && npm run prettier:write",
+    "prettier": "prettier -c .",
+    "prettier:write": "npm run prettier -- --write",
+    "publish:test": "npm run prepublishOnly && npm pack --dry-run && npm run postpublish",
+    "release": "semantic-release",
+    "test": "mocha -r ts-node/register --full-trace --ui bdd --bail ./test/*.spec.ts",
+    "test:js": "npm run build && mocha --full-trace --ui bdd --bail ./build/test/**/*.spec.js && npm run build:remove"
   },
   "dependencies": {
     "@types/request-promise-native": "^1.0.17",
@@ -41,7 +46,7 @@
     "lint-staged": "^10.2.11",
     "mocha": "^8.2.1",
     "nyc": "^15.0.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.2.1",
     "ts-node": "^9.1.1"
   },
   "keywords": [
@@ -70,6 +75,5 @@
   },
   "directories": {
     "test": "test"
-  },
-  "snyk": true
+  }
 }
