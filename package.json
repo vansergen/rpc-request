@@ -32,6 +32,7 @@
     "request-promise-native": "^1.0.9"
   },
   "devDependencies": {
+    "@b2broker/tsconfig": "^1.0.3",
     "@types/mocha": "^8.0.1",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.8.0",
