@@ -19,8 +19,8 @@
     "fresh-install": "rm -fr node_modules && rm -f package-lock.json && npm install",
     "build": "rm -fr build && tsc",
     "test": "mocha -r ts-node/register --full-trace --ui tdd --bail test/*.spec.ts",
-    "lint": "eslint --ext .ts,.js ./",
-    "lint-fix": "npm run lint -- --fix",
+    "lint": "eslint --ext .ts ./",
+    "lint:fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run prettier && npm run lint && npm run build && npm run prettier-write && npm run lint-fix",
     "postpublish": "rm -fr build",
     "snyk-protect": "npx snyk protect",
@@ -34,18 +34,15 @@
   "devDependencies": {
     "@b2broker/tsconfig": "^1.0.3",
     "@types/mocha": "^8.0.1",
-    "@typescript-eslint/eslint-plugin": "^3.8.0",
-    "@typescript-eslint/parser": "^3.8.0",
     "commitlint-config-b2broker": "^1.0.0",
     "coveralls": "^3.1.0",
-    "eslint": "^7.6.0",
+    "eslint-config-b2broker-ts": "^1.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "mocha": "^8.1.1",
     "nyc": "^15.0.0",
     "prettier": "^2.0.5",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "ts-node": "^8.10.2"
   },
   "keywords": [
     "rpc",

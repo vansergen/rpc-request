@@ -1,47 +1,6 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "overrides": [
-    {
-      "files": ["*.js"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/explicit-function-return-type": "off"
-      }
-    },
-    {
-      "files": ["build/index.js"],
-      "rules": {
-        "no-prototype-builtins": "off"
-      }
-    },
-    {
-      "files": ["*.js", "*.ts"],
-      "rules": {
-        "@typescript-eslint/no-explicit-any": "off"
-      }
-    }
-  ],
-  "env": {
-    "node": true,
-    "es2020": true
-  },
-  "parser": "@typescript-eslint/parser",
+  "extends": ["b2broker-ts"],
   "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
-  },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "curly": "error",
-    "eqeqeq": "error",
-    "linebreak-style": "error",
-    "quotes": ["error", "double", { "avoidEscape": true }],
-    "prefer-destructuring": "error",
-    "no-console": "error",
-    "semi": "error"
+    "project": "tsconfig.json"
   }
 }
