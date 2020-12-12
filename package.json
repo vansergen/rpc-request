@@ -43,7 +43,7 @@
     "coveralls": "^3.1.0",
     "eslint-config-b2broker-ts": "^1.0.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
+    "lint-staged": "^10.5.3",
     "mocha": "^8.2.1",
     "nyc": "^15.0.0",
     "prettier": "^2.2.1",
@@ -59,16 +59,6 @@
     "url": "https://github.com/vansergen/rpc-request/issues"
   },
   "homepage": "https://github.com/vansergen/rpc-request#readme",
-  "lint-staged": {
-    "*.{js,ts,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{ts,js}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
   "funding": {
     "type": "Coinbase Commerce",
     "url": "https://commerce.coinbase.com/checkout/32948818-f4bb-4087-ae5e-1d29ecb86e64"
