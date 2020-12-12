@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@types/request-promise-native": "^1.0.17",
+    "node-fetch": "^3.0.0-beta.9",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.9"
   },
