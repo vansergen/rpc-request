@@ -3,45 +3,126 @@ name: CI
 on: [push]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+  test:
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10, 11, 12, 13, 14]
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        node-version: [12, 13, 14]
+
+    container: node:${{ matrix.node-version }}-buster
 
     steps:
       - uses: actions/checkout@master
-      - name: Use Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
-        uses: actions/setup-node@master
         with:
-          node-version: ${{ matrix.node-version }}
+          fetch-depth: 0
+
+      - name: Node.js version
+        run: node --version
+
+      - name: npm version
+        run: npm --version
+
+      - name: Git version
+        run: git --version
+
       - name: Install dependencies
         run: npm ci
-      - name: Node.js version
-        run: node -v
-      - name: npm version
-        run: npm -v
-      - name: Run eslint
-        run: npm run lint
-      - name: Run prettier
-        run: npm run prettier
-      - name: Run tests
+
+      - name: Tests
         run: npm test
-      - name: Test prepublish script
-        run: npm run prepublishOnly
-      - name: Test postpublish script
-        run: npm run postpublish
-      - name: Test coverage
+
+      - name: Tests:js
+        run: npm run test:js
+
+      - name: Prettier
+        run: npm run prettier
+
+      - name: commitlint
+        run: npm run commitlint:all
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Publish test
+        run: npm run publish:test
+
+      - name: Docs
+        run: npm run docs:test
+
+      - name: npm vulnerabilities
+        run: npm audit --production
+
+  coverage:
+    runs-on: ubuntu-latest
+
+    container: node:14
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Node.js version
+        run: node --version
+
+      - name: npm version
+        run: npm --version
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Coverage
         run: npm run coverage
-      - name: Coveralls Parallel
+
+      - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel: true
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
+
+  release:
+    needs: [test, coverage]
+
+    runs-on: ubuntu-latest
+
+    container: node:14-buster
+
+    steps:
+      - uses: actions/checkout@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel-finished: true
+          fetch-depth: 0
+
+      - name: Node.js version
+        run: node --version
+
+      - name: npm version
+        run: npm --version
+
+      - name: git version
+        run: git --version
+
+      - name: gpg version
+        run: gpg --version
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Decrypt PGP key
+        run: ./.github/scripts/decrypt.sh
+
+      - name: Setup git
+        run: ./.github/scripts/git.sh
+
+      - name: Release
+        run: npm run release
+
+      - name: Cleanup
+        run: ./.github/scripts/cleanup.sh
+
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
+      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
+      NPM_CONFIG_UNSAFE_PERM: true
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      PGP_KEY_ID: ${{ secrets.PGP_KEY_ID }}
+      PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
+      PRIVATE_KEY_PASSPHRASE: ${{ secrets.PRIVATE_KEY_PASSPHRASE }}
