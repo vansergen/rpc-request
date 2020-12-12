@@ -19,6 +19,9 @@
     "commitlint": "commitlint --verbose",
     "commitlint:all": "npm run commitlint -- --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "docs:build": "npm run docs:remove && typedoc && npm run lint:fix && npm run prettier:write -- --ignore-path .prettierignore_docs",
+    "docs:remove": "rm -rf ./docs",
+    "docs:test": "npm run docs:build && npm run docs:remove",
     "install:clean": "rm -fr node_modules && rm -f package-lock.json && npm install",
     "lint": "eslint --ext .ts ./",
     "lint:fix": "npm run lint -- --fix",
@@ -47,7 +50,8 @@
     "mocha": "^8.2.1",
     "nyc": "^15.0.0",
     "prettier": "^2.2.1",
-    "ts-node": "^9.1.1"
+    "ts-node": "^9.1.1",
+    "typedoc": "^0.19.2"
   },
   "keywords": [
     "rpc",
