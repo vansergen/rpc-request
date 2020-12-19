@@ -1,6 +1,6 @@
 {
   "name": "rpc-request",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Simple wrapper of the node-fetch library in a class",
   "main": "./build/index.js",
   "type": "commonjs",

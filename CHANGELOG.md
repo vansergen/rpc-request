@@ -1,5 +1,15 @@
 # Changelog
 
+### [5.0.1](https://github.com/vansergen/rpc-request/compare/v5.0.0...v5.0.1) (2020-12-19)
+
+### Bug Fixes
+
+- allow to append headers ([56205c4](https://github.com/vansergen/rpc-request/commit/56205c4e6224d929ee8547a224af52037994819f))
+
+### Dependencies
+
+- update `@types/node` to `v14.14.14` ([0ce993c](https://github.com/vansergen/rpc-request/commit/0ce993c67141c4c01732605739d2bf22ddb077f3))
+
 ## [5.0.0](https://github.com/vansergen/rpc-request/compare/v4.0.10...v5.0.0) (2020-12-12)
 
 ### ⚠ BREAKING CHANGES
