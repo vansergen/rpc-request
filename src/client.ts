@@ -106,7 +106,11 @@ export class FetchClient<T = fetch.Response> {
     { headers: headers1, ...rest1 }: fetch.RequestInit,
     { headers: headers2, ...rest2 }: fetch.RequestInit
   ): fetch.RequestInit {
-    const headers = new fetch.Headers({ ...headers1, ...headers2 });
+    const headers = new fetch.Headers(headers1);
+    const _headers = new fetch.Headers(headers2);
+    for (const [key, value] of _headers) {
+      headers.set(key, value);
+    }
     return { ...rest1, ...rest2, headers };
   }
 }
