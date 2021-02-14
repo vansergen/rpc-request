@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.0.2](https://github.com/vansergen/rpc-request/compare/v5.0.1...v5.0.2) (2021-02-14)
+
+### Dependencies
+
+- upgrade `@types/node` to `v14.14.27` ([ab1021f](https://github.com/vansergen/rpc-request/commit/ab1021f14bf42352627ff74534dc26ba328049ca))
+- upgrade `semantic-release` to `v17.3.9` ([1b588f6](https://github.com/vansergen/rpc-request/commit/1b588f64863a40e7ec8e4272964daf67f07396fe))
+
 ### [5.0.1](https://github.com/vansergen/rpc-request/compare/v5.0.0...v5.0.1) (2020-12-19)
 
 ### Bug Fixes
