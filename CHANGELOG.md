@@ -1,5 +1,11 @@
 # Changelog
 
+### [5.0.3](https://github.com/vansergen/rpc-request/compare/v5.0.2...v5.0.3) (2021-03-07)
+
+### Dependencies
+
+- upgrade `@types/node` to `v14.14.31` ([757c8c0](https://github.com/vansergen/rpc-request/commit/757c8c05efa64a5aefabc1432792b381a2800414))
+
 ### [5.0.2](https://github.com/vansergen/rpc-request/compare/v5.0.1...v5.0.2) (2021-02-14)
 
 ### Dependencies
