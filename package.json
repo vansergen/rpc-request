@@ -30,7 +30,7 @@
     "prepublishOnly": "npm run build && npm run lint:fix && npm run prettier:write",
     "prettier": "prettier -c .",
     "prettier:write": "npm run prettier -- --write",
-    "publish:test": "npm run prepublishOnly && npm pack --dry-run && npm run postpublish",
+    "publish:test": "npm publish --dry-run",
     "release": "semantic-release",
     "test": "mocha -r ts-node/register --full-trace --ui bdd --bail ./test/*.spec.ts",
     "test:js": "npm run build && mocha --full-trace --ui bdd --bail ./build/test/**/*.spec.js && npm run build:remove"
