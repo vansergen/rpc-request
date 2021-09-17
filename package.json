@@ -3,7 +3,7 @@
   "version": "5.0.3",
   "description": "Simple wrapper of the node-fetch library in a class",
   "main": "./build/index.js",
-  "type": "commonjs",
+  "type": "module",
   "types": "./build/index.d.ts",
   "repository": {
     "type": "git",
