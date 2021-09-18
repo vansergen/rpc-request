@@ -35,7 +35,6 @@
     "ts-node": "node --loader ts-node/esm"
   },
   "dependencies": {
-    "domexception": "^2.0.1",
     "node-fetch": "^3.0.0"
   },
   "devDependencies": {
