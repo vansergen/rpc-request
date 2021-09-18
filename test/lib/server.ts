@@ -1,8 +1,8 @@
-import http from "http";
+import { createServer } from "node:http";
 
 export const RESPONSE = { result: "ok" } as const;
 
-export const server = http.createServer((request, response) => {
+export const server = createServer((request, response) => {
   const { url, method } = request;
 
   if (url !== "/") {

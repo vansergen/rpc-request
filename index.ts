@@ -1,3 +1,3 @@
-export * from "./src/client";
-export * from "./src/error";
-export { default } from "./src/client";
+export * from "./src/client.js";
+export * from "./src/error.js";
+export { default } from "./src/client.js";

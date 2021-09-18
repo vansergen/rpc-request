@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
-import { UnsuccessfulFetch } from "./error";
+import fetch, { RequestInit, Response, Headers } from "node-fetch";
+import { UnsuccessfulFetch } from "./error.js";
 
 export type ITransformType =
   | "buffer"
@@ -22,68 +22,68 @@ export interface IClientOptions extends FetchClientOptions {
 
 export const DefaultTransform = "raw";
 
-export class FetchClient<T = fetch.Response> {
-  #fetchOptions: fetch.RequestInit;
+export class FetchClient<T = Response> {
+  #fetchOptions: RequestInit;
 
   readonly #clientOptions: IClientOptions;
 
   public constructor(
-    fetchOptions: fetch.RequestInit = {},
+    fetchOptions: RequestInit = {},
     {
       rejectNotOk = true,
       transform = DefaultTransform,
       baseUrl,
     }: FetchClientOptions = {}
   ) {
-    const headers = new fetch.Headers(fetchOptions.headers);
+    const headers = new Headers(fetchOptions.headers);
     this.#fetchOptions = { ...fetchOptions, headers };
     this.#clientOptions = { rejectNotOk, baseUrl, transform };
   }
 
-  public get fetchOptions(): fetch.RequestInit {
+  public get fetchOptions(): RequestInit {
     return this.#fetchOptions;
   }
 
-  public set fetchOptions(options: fetch.RequestInit) {
+  public set fetchOptions(options: RequestInit) {
     this.#fetchOptions = FetchClient.mergeFetchOptions(
       this.#fetchOptions,
       options
     );
   }
 
-  public get(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public get(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "GET" });
   }
 
-  public head(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public head(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "HEAD" });
   }
 
-  public post(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public post(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "POST" });
   }
 
-  public put(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public put(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "PUT" });
   }
 
-  public delete(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public delete(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "DELETE" });
   }
 
-  public options(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public options(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "OPTIONS" });
   }
 
-  public trace(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public trace(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "TRACE" });
   }
 
-  public patch(path = "", _fetchOptions: fetch.RequestInit = {}): Promise<T> {
+  public patch(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "PATCH" });
   }
 
-  public async fetch(path = "", options: fetch.RequestInit = {}): Promise<T> {
+  public async fetch(path = "", options: RequestInit = {}): Promise<T> {
     const { baseUrl, rejectNotOk, transform } = this.#clientOptions;
     const url = new URL(path, baseUrl).toString();
     const fetchOptions = FetchClient.mergeFetchOptions(
@@ -95,7 +95,7 @@ export class FetchClient<T = fetch.Response> {
     if (rejectNotOk && !response.ok) {
       throw new UnsuccessfulFetch(response.statusText, response);
     } else if (transform === "raw") {
-      return (response as unknown) as T;
+      return response as unknown as T;
     }
 
     const data = (await response[transform]()) as T;
@@ -103,11 +103,11 @@ export class FetchClient<T = fetch.Response> {
   }
 
   private static mergeFetchOptions(
-    { headers: headers1, ...rest1 }: fetch.RequestInit,
-    { headers: headers2, ...rest2 }: fetch.RequestInit
-  ): fetch.RequestInit {
-    const headers = new fetch.Headers(headers1);
-    const _headers = new fetch.Headers(headers2);
+    { headers: headers1, ...rest1 }: RequestInit,
+    { headers: headers2, ...rest2 }: RequestInit
+  ): RequestInit {
+    const headers = new Headers(headers1);
+    const _headers = new Headers(headers2);
     for (const [key, value] of _headers) {
       headers.set(key, value);
     }
