@@ -1,5 +1,22 @@
 # Changelog
 
+## [6.0.0](https://github.com/vansergen/rpc-request/compare/v5.0.3...v6.0.0) (2021-09-21)
+
+### ⚠ BREAKING CHANGES
+
+- drop Node `<16.9.1` support
+- change package type to `module`
+
+### Performance Improvements
+
+- change package type to `module` ([b42e412](https://github.com/vansergen/rpc-request/commit/b42e412177d76cbdba436bda4f644f66af1c4756))
+- drop Node `<16.9.1` support ([6bac8f5](https://github.com/vansergen/rpc-request/commit/6bac8f5611c8342843cd7d27ef4b06fd253c6436))
+
+### Dependencies
+
+- remove `domexception` ([e5c0402](https://github.com/vansergen/rpc-request/commit/e5c0402fd0a91cbd2c4e5f7fbaa0914634e8f14c))
+- upgrade `node-fetch` to `v3.0.0` ([5c010af](https://github.com/vansergen/rpc-request/commit/5c010af57d3767498ae1e4d6fa87072aee8d8baf))
+
 ### [5.0.3](https://github.com/vansergen/rpc-request/compare/v5.0.2...v5.0.3) (2021-03-07)
 
 ### Dependencies

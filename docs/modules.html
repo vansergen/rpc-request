@@ -6,27 +6,22 @@
     <title>rpc-request</title>
     <meta name="description" content="Documentation for rpc-request" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <script async src="assets/js/search.js" id="search-script"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/highlight.css" />
+    <script async src="assets/search.js" id="search-script"></script>
   </head>
   <body>
     <header>
       <div class="tsd-page-toolbar">
         <div class="container">
           <div class="table-wrap">
-            <div
-              class="table-cell"
-              id="tsd-search"
-              data-index="assets/js/search.json"
-              data-base="."
-            >
+            <div class="table-cell" id="tsd-search" data-base=".">
               <div class="field">
                 <label
                   for="tsd-search-field"
                   class="tsd-widget search no-caption"
                   >Search</label
-                >
-                <input id="tsd-search-field" type="text" />
+                ><input type="text" id="tsd-search-field" />
               </div>
               <ul class="results">
                 <li class="state loading">Preparing search index...</li>
@@ -51,12 +46,17 @@
                       <li data-value="private" class="selected">All</li>
                     </ul>
                   </div>
-                  <input type="checkbox" id="tsd-filter-inherited" checked />
-                  <label class="tsd-widget" for="tsd-filter-inherited"
+                  <input
+                    type="checkbox"
+                    id="tsd-filter-inherited"
+                    checked
+                  /><label class="tsd-widget" for="tsd-filter-inherited"
                     >Inherited</label
-                  >
-                  <input type="checkbox" id="tsd-filter-externals" checked />
-                  <label class="tsd-widget" for="tsd-filter-externals"
+                  ><input
+                    type="checkbox"
+                    id="tsd-filter-externals"
+                    checked
+                  /><label class="tsd-widget" for="tsd-filter-externals"
                     >Externals</label
                   >
                 </div>
@@ -69,9 +69,7 @@
         </div>
       </div>
       <div class="tsd-page-title">
-        <div class="container">
-          <h1>rpc-request</h1>
-        </div>
+        <div class="container"><h1>rpc-request</h1></div>
       </div>
     </header>
     <div class="container container-main">
@@ -82,23 +80,28 @@
             <section class="tsd-panel tsd-index-panel">
               <div class="tsd-index-content">
                 <section class="tsd-index-section">
+                  <h3>References</h3>
+                  <ul class="tsd-index-list">
+                    <li class="tsd-kind-reference">
+                      <a href="modules.html#default" class="tsd-kind-icon"
+                        >default</a
+                      >
+                    </li>
+                  </ul>
+                </section>
+                <section class="tsd-index-section">
                   <h3>Classes</h3>
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-class tsd-has-type-parameter">
-                      <a href="classes/fetchclient.html" class="tsd-kind-icon"
+                      <a href="classes/FetchClient.html" class="tsd-kind-icon"
                         >Fetch<wbr />Client</a
                       >
                     </li>
                     <li class="tsd-kind-class">
                       <a
-                        href="classes/unsuccessfulfetch.html"
+                        href="classes/UnsuccessfulFetch.html"
                         class="tsd-kind-icon"
                         >Unsuccessful<wbr />Fetch</a
-                      >
-                    </li>
-                    <li class="tsd-kind-class tsd-has-type-parameter">
-                      <a href="classes/default.html" class="tsd-kind-icon"
-                        >default</a
                       >
                     </li>
                   </ul>
@@ -108,14 +111,14 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-interface">
                       <a
-                        href="interfaces/fetchclientoptions.html"
+                        href="interfaces/FetchClientOptions.html"
                         class="tsd-kind-icon"
                         >Fetch<wbr />Client<wbr />Options</a
                       >
                     </li>
                     <li class="tsd-kind-interface">
                       <a
-                        href="interfaces/iclientoptions.html"
+                        href="interfaces/IClientOptions.html"
                         class="tsd-kind-icon"
                         >IClient<wbr />Options</a
                       >
@@ -127,7 +130,7 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-type-alias">
                       <a
-                        href="modules.html#itransformtype"
+                        href="modules.html#ITransformType"
                         class="tsd-kind-icon"
                         >ITransform<wbr />Type</a
                       >
@@ -139,7 +142,7 @@
                   <ul class="tsd-index-list">
                     <li class="tsd-kind-variable">
                       <a
-                        href="modules.html#defaulttransform"
+                        href="modules.html#DefaultTransform"
                         class="tsd-kind-icon"
                         >Default<wbr />Transform</a
                       >
@@ -150,9 +153,18 @@
             </section>
           </section>
           <section class="tsd-panel-group tsd-member-group">
+            <h2>References</h2>
+            <section class="tsd-panel tsd-member tsd-kind-reference">
+              <a name="default" class="tsd-anchor"></a>
+              <h3>default</h3>
+              Renames and re-exports
+              <a href="classes/FetchClient.html">FetchClient</a>
+            </section>
+          </section>
+          <section class="tsd-panel-group tsd-member-group">
             <h2>Type aliases</h2>
             <section class="tsd-panel tsd-member tsd-kind-type-alias">
-              <a name="itransformtype" class="tsd-anchor"></a>
+              <a name="ITransformType" class="tsd-anchor"></a>
               <h3>ITransform<wbr />Type</h3>
               <div class="tsd-signature tsd-kind-icon">
                 ITransform<wbr />Type<span class="tsd-signature-symbol">:</span>
@@ -173,8 +185,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/vansergen/rpc-request/blob/master/src/client.ts#L4"
-                      >src/client.ts:4</a
+                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L3"
+                      >index.ts:3</a
                     >
                   </li>
                 </ul>
@@ -184,11 +196,8 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Variables</h2>
             <section class="tsd-panel tsd-member tsd-kind-variable">
-              <a name="defaulttransform" class="tsd-anchor"></a>
-              <h3>
-                <span class="tsd-flag ts-flagConst">Const</span>
-                Default<wbr />Transform
-              </h3>
+              <a name="DefaultTransform" class="tsd-anchor"></a>
+              <h3>Default<wbr />Transform</h3>
               <div class="tsd-signature tsd-kind-icon">
                 Default<wbr />Transform<span class="tsd-signature-symbol"
                   >:</span
@@ -201,8 +210,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/vansergen/rpc-request/blob/master/src/client.ts#L23"
-                      >src/client.ts:23</a
+                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L22"
+                      >index.ts:22</a
                     >
                   </li>
                 </ul>
@@ -213,45 +222,43 @@
         <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
           <nav class="tsd-navigation primary">
             <ul>
-              <li class="current">
-                <a href="modules.html">Exports</a>
-              </li>
+              <li class="current"><a href="modules.html">Exports</a></li>
             </ul>
           </nav>
           <nav class="tsd-navigation secondary menu-sticky">
-            <ul class="before-current">
+            <ul>
+              <li class="tsd-kind-reference">
+                <a href="modules.html#default" class="tsd-kind-icon">default</a>
+              </li>
               <li class="tsd-kind-class tsd-has-type-parameter">
-                <a href="classes/fetchclient.html" class="tsd-kind-icon"
+                <a href="classes/FetchClient.html" class="tsd-kind-icon"
                   >Fetch<wbr />Client</a
                 >
               </li>
               <li class="tsd-kind-class">
-                <a href="classes/unsuccessfulfetch.html" class="tsd-kind-icon"
+                <a href="classes/UnsuccessfulFetch.html" class="tsd-kind-icon"
                   >Unsuccessful<wbr />Fetch</a
                 >
               </li>
-              <li class="tsd-kind-class tsd-has-type-parameter">
-                <a href="classes/default.html" class="tsd-kind-icon">default</a>
-              </li>
               <li class="tsd-kind-interface">
                 <a
-                  href="interfaces/fetchclientoptions.html"
+                  href="interfaces/FetchClientOptions.html"
                   class="tsd-kind-icon"
                   >Fetch<wbr />Client<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-interface">
-                <a href="interfaces/iclientoptions.html" class="tsd-kind-icon"
+                <a href="interfaces/IClientOptions.html" class="tsd-kind-icon"
                   >IClient<wbr />Options</a
                 >
               </li>
               <li class="tsd-kind-type-alias">
-                <a href="modules.html#itransformtype" class="tsd-kind-icon"
+                <a href="modules.html#ITransformType" class="tsd-kind-icon"
                   >ITransform<wbr />Type</a
                 >
               </li>
               <li class="tsd-kind-variable">
-                <a href="modules.html#defaulttransform" class="tsd-kind-icon"
+                <a href="modules.html#DefaultTransform" class="tsd-kind-icon"
                   >Default<wbr />Transform</a
                 >
               </li>
@@ -260,7 +267,7 @@
         </div>
       </div>
     </div>
-    <footer>
+    <footer class="">
       <div class="container">
         <h2>Legend</h2>
         <div class="tsd-legend-group">
@@ -286,9 +293,18 @@
             </li>
           </ul>
         </div>
+        <h2>Settings</h2>
+        <p>
+          Theme
+          <select id="theme">
+            <option value="os">OS</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </p>
       </div>
     </footer>
     <div class="overlay"></div>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/main.js"></script>
   </body>
 </html>
