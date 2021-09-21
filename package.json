@@ -30,7 +30,7 @@
     "prettier:write": "npm run prettier -- --write",
     "publish:test": "npm publish --dry-run",
     "release": "semantic-release",
-    "test": "mocha 'build/test/**/*.spec.js' --ui=tdd --full-trace --bail",
+    "test": "mocha 'build/test/**/*.spec.js' --full-trace --bail",
     "test:ci": "npm run prepublishOnly && npm test && npm run postpublish",
     "ts-node": "node --loader ts-node/esm"
   },
