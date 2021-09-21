@@ -45,7 +45,7 @@ export class FetchClient<T = Response> {
   }
 
   public set fetchOptions(options: RequestInit) {
-    this.#fetchOptions = FetchClient.mergeFetchOptions(
+    this.#fetchOptions = FetchClient.#mergeFetchOptions(
       this.#fetchOptions,
       options
     );
@@ -86,7 +86,7 @@ export class FetchClient<T = Response> {
   public async fetch(path = "", options: RequestInit = {}): Promise<T> {
     const { baseUrl, rejectNotOk, transform } = this.#clientOptions;
     const url = new URL(path, baseUrl).toString();
-    const fetchOptions = FetchClient.mergeFetchOptions(
+    const fetchOptions = FetchClient.#mergeFetchOptions(
       this.#fetchOptions,
       options
     );
@@ -102,7 +102,7 @@ export class FetchClient<T = Response> {
     return data;
   }
 
-  private static mergeFetchOptions(
+  static #mergeFetchOptions(
     { headers: headers1, ...rest1 }: RequestInit,
     { headers: headers2, ...rest2 }: RequestInit
   ): RequestInit {
