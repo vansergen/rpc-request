@@ -19,7 +19,7 @@
     "commitlint": "commitlint --verbose",
     "commitlint:all": "npm run commitlint -- --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
     "coverage": "c8 npm test && c8 report --reporter=lcov",
-    "coverage:ci": "npm run prepublishOnly && npm run coverage && npm run postpublish",
+    "coverage:ci": "npm run prepublishOnly && npm run coverage",
     "docs:build": "rm -rf ./docs && typedoc && npm run prettier:write -- --ignore-path .prettierignore_docs",
     "install:clean": "rm -fr node_modules && rm -f package-lock.json && npm install",
     "lint": "eslint --ext .ts ./",
