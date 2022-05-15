@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="default no-js">
+<html class="default">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <title>FetchClient | rpc-request</title>
     <meta name="description" content="Documentation for rpc-request" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,6 +11,9 @@
     <script async src="../assets/search.js" id="search-script"></script>
   </head>
   <body>
+    <script>
+      document.body.classList.add(localStorage.getItem("tsd-theme") || "os");
+    </script>
     <header>
       <div class="tsd-page-toolbar">
         <div class="container">
@@ -103,11 +106,7 @@
                   <h3>Constructors</h3>
                   <ul class="tsd-index-list">
                     <li
-                      class="
-                        tsd-kind-constructor
-                        tsd-parent-kind-class
-                        tsd-has-type-parameter
-                      "
+                      class="tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"
                     >
                       <a
                         href="FetchClient.html#constructor"
@@ -118,16 +117,12 @@
                   </ul>
                 </section>
                 <section
-                  class="
-                    tsd-index-section tsd-is-private tsd-is-private-protected
-                  "
+                  class="tsd-index-section tsd-is-private tsd-is-private-protected"
                 >
                   <h3>Properties</h3>
                   <ul class="tsd-index-list">
                     <li
-                      class="
-                        tsd-kind-property tsd-parent-kind-class tsd-is-private
-                      "
+                      class="tsd-kind-property tsd-parent-kind-class tsd-is-private"
                     >
                       <a
                         href="FetchClient.html#_clientOptions"
@@ -136,9 +131,7 @@
                       >
                     </li>
                     <li
-                      class="
-                        tsd-kind-property tsd-parent-kind-class tsd-is-private
-                      "
+                      class="tsd-kind-property tsd-parent-kind-class tsd-is-private"
                     >
                       <a
                         href="FetchClient.html#_fetchOptions"
@@ -209,12 +202,7 @@
                       >
                     </li>
                     <li
-                      class="
-                        tsd-kind-method
-                        tsd-parent-kind-class
-                        tsd-is-private
-                        tsd-is-static
-                      "
+                      class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"
                     >
                       <a
                         href="FetchClient.html#_mergeFetchOptions"
@@ -230,29 +218,48 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Constructors</h2>
             <section
-              class="
-                tsd-panel
-                tsd-member
-                tsd-kind-constructor
-                tsd-parent-kind-class
-                tsd-has-type-parameter
-              "
+              class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"
             >
-              <a name="constructor" class="tsd-anchor"></a>
-              <h3>constructor</h3>
+              <a id="constructor" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                constructor<a
+                  href="#constructor"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul
-                class="
-                  tsd-signatures
-                  tsd-kind-constructor
-                  tsd-parent-kind-class
-                  tsd-has-type-parameter
-                "
+                class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"
               >
                 <li class="tsd-signature tsd-kind-icon">
-                  new <wbr />Fetch<wbr />Client&lt;T&gt;<span
+                  new <wbr />Fetch<wbr />Client<span
                     class="tsd-signature-symbol"
-                    >(</span
-                  >fetchOptions<span class="tsd-signature-symbol">?: </span
+                    >&lt;</span
+                  ><span
+                    class="tsd-signature-type"
+                    data-tsd-kind="Type parameter"
+                    >T</span
+                  ><span class="tsd-signature-symbol">&gt;</span
+                  ><span class="tsd-signature-symbol">(</span>fetchOptions<span
+                    class="tsd-signature-symbol"
+                    >?: </span
                   ><span class="tsd-signature-type">RequestInit</span>,
                   __namedParameters<span class="tsd-signature-symbol">?: </span
                   ><a
@@ -336,28 +343,38 @@
             </section>
           </section>
           <section
-            class="
-              tsd-panel-group
-              tsd-member-group
-              tsd-is-private
-              tsd-is-private-protected
-            "
+            class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected"
           >
             <h2>Properties</h2>
             <section
-              class="
-                tsd-panel
-                tsd-member
-                tsd-kind-property
-                tsd-parent-kind-class
-                tsd-is-private
-              "
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"
             >
-              <a name="_clientOptions" class="tsd-anchor"></a>
-              <h3>
+              <a id="_clientOptions" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
                 <span class="tsd-flag ts-flagPrivate">Private</span>
                 <span class="tsd-flag ts-flagReadonly">Readonly</span>
-                #client<wbr />Options
+                #client<wbr />Options<a
+                  href="#_clientOptions"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
               </h3>
               <div class="tsd-signature tsd-kind-icon">
                 #client<wbr />Options<span class="tsd-signature-symbol">:</span>
@@ -381,18 +398,33 @@
               </aside>
             </section>
             <section
-              class="
-                tsd-panel
-                tsd-member
-                tsd-kind-property
-                tsd-parent-kind-class
-                tsd-is-private
-              "
+              class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"
             >
-              <a name="_fetchOptions" class="tsd-anchor"></a>
-              <h3>
+              <a id="_fetchOptions" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
                 <span class="tsd-flag ts-flagPrivate">Private</span>
-                #fetch<wbr />Options
+                #fetch<wbr />Options<a
+                  href="#_fetchOptions"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
               </h3>
               <div class="tsd-signature tsd-kind-icon">
                 #fetch<wbr />Options<span class="tsd-signature-symbol">:</span>
@@ -414,12 +446,33 @@
           <section class="tsd-panel-group tsd-member-group">
             <h2>Accessors</h2>
             <section
-              class="
-                tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class
-              "
+              class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"
             >
-              <a name="fetchOptions" class="tsd-anchor"></a>
-              <h3>fetch<wbr />Options</h3>
+              <a id="fetchOptions" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                fetch<wbr />Options<a
+                  href="#fetchOptions"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul
                 class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class"
               >
@@ -490,8 +543,31 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="delete" class="tsd-anchor"></a>
-              <h3>delete</h3>
+              <a id="delete" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                delete<a
+                  href="#delete"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   delete<span class="tsd-signature-symbol">(</span>path<span
@@ -557,8 +633,31 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="fetch" class="tsd-anchor"></a>
-              <h3>fetch</h3>
+              <a id="fetch" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                fetch<a
+                  href="#fetch"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   fetch<span class="tsd-signature-symbol">(</span>path<span
@@ -625,8 +724,28 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="get" class="tsd-anchor"></a>
-              <h3>get</h3>
+              <a id="get" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                get<a href="#get" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   get<span class="tsd-signature-symbol">(</span>path<span
@@ -692,8 +811,31 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="head" class="tsd-anchor"></a>
-              <h3>head</h3>
+              <a id="head" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                head<a
+                  href="#head"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   head<span class="tsd-signature-symbol">(</span>path<span
@@ -759,8 +901,31 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="options" class="tsd-anchor"></a>
-              <h3>options</h3>
+              <a id="options" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                options<a
+                  href="#options"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   options<span class="tsd-signature-symbol">(</span>path<span
@@ -826,8 +991,31 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="patch" class="tsd-anchor"></a>
-              <h3>patch</h3>
+              <a id="patch" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                patch<a
+                  href="#patch"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   patch<span class="tsd-signature-symbol">(</span>path<span
@@ -893,8 +1081,31 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="post" class="tsd-anchor"></a>
-              <h3>post</h3>
+              <a id="post" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                post<a
+                  href="#post"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   post<span class="tsd-signature-symbol">(</span>path<span
@@ -960,8 +1171,28 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="put" class="tsd-anchor"></a>
-              <h3>put</h3>
+              <a id="put" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                put<a href="#put" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   put<span class="tsd-signature-symbol">(</span>path<span
@@ -1027,8 +1258,31 @@
             <section
               class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"
             >
-              <a name="trace" class="tsd-anchor"></a>
-              <h3>trace</h3>
+              <a id="trace" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                trace<a
+                  href="#trace"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
+              </h3>
               <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
                 <li class="tsd-signature tsd-kind-icon">
                   trace<span class="tsd-signature-symbol">(</span>path<span
@@ -1092,29 +1346,37 @@
               </ul>
             </section>
             <section
-              class="
-                tsd-panel
-                tsd-member
-                tsd-kind-method
-                tsd-parent-kind-class
-                tsd-is-private
-                tsd-is-static
-              "
+              class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"
             >
-              <a name="_mergeFetchOptions" class="tsd-anchor"></a>
-              <h3>
+              <a id="_mergeFetchOptions" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
                 <span class="tsd-flag ts-flagStatic">Static</span>
                 <span class="tsd-flag ts-flagPrivate">Private</span>
-                #merge<wbr />Fetch<wbr />Options
+                #merge<wbr />Fetch<wbr />Options<a
+                  href="#_mergeFetchOptions"
+                  aria-label="Permalink"
+                  class="tsd-anchor-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-link"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"
+                    ></path>
+                    <path
+                      d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"
+                    ></path></svg
+                ></a>
               </h3>
               <ul
-                class="
-                  tsd-signatures
-                  tsd-kind-method
-                  tsd-parent-kind-class
-                  tsd-is-private
-                  tsd-is-static
-                "
+                class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"
               >
                 <li class="tsd-signature tsd-kind-icon">
                   #merge<wbr />Fetch<wbr />Options<span
@@ -1179,20 +1441,14 @@
                 >
                 <ul>
                   <li
-                    class="
-                      tsd-kind-constructor
-                      tsd-parent-kind-class
-                      tsd-has-type-parameter
-                    "
+                    class="tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"
                   >
                     <a href="FetchClient.html#constructor" class="tsd-kind-icon"
                       >constructor</a
                     >
                   </li>
                   <li
-                    class="
-                      tsd-kind-property tsd-parent-kind-class tsd-is-private
-                    "
+                    class="tsd-kind-property tsd-parent-kind-class tsd-is-private"
                   >
                     <a
                       href="FetchClient.html#_clientOptions"
@@ -1201,9 +1457,7 @@
                     >
                   </li>
                   <li
-                    class="
-                      tsd-kind-property tsd-parent-kind-class tsd-is-private
-                    "
+                    class="tsd-kind-property tsd-parent-kind-class tsd-is-private"
                   >
                     <a
                       href="FetchClient.html#_fetchOptions"
@@ -1260,12 +1514,7 @@
                     >
                   </li>
                   <li
-                    class="
-                      tsd-kind-method
-                      tsd-parent-kind-class
-                      tsd-is-private
-                      tsd-is-static
-                    "
+                    class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"
                   >
                     <a
                       href="FetchClient.html#_mergeFetchOptions"
