@@ -36,7 +36,7 @@
     "ts-node": "node --loader ts-node/esm"
   },
   "dependencies": {
-    "node-fetch": "^3.2.4"
+    "node-fetch": "^3.2.6"
   },
   "devDependencies": {
     "@b2broker/tsconfig": "^1.0.3",
@@ -44,17 +44,16 @@
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@types/mocha": "^9.1.1",
-    "c8": "^7.11.2",
+    "c8": "^7.11.3",
     "commitlint-config-b2broker": "^1.0.7",
     "eslint-config-b2broker-ts": "^2.0.1",
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.1",
+    "lint-staged": "^13.0.3",
     "mocha": "^10.0.0",
-    "nyc": "^15.0.0",
-    "prettier": "^2.6.2",
-    "semantic-release": "^19.0.2",
-    "ts-node": "^10.7.0",
-    "typedoc": "^0.22.15"
+    "prettier": "^2.7.1",
+    "semantic-release": "^19.0.3",
+    "ts-node": "^10.8.1",
+    "typedoc": "^0.22.17"
   },
   "keywords": [
     "rpc",
