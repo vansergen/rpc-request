@@ -1,5 +1,11 @@
 # Changelog
 
+### [6.0.2](https://github.com/vansergen/rpc-request/compare/v6.0.1...v6.0.2) (2022-06-24)
+
+### Dependencies
+
+- upgrade `node-fetch` to `v3.2.6` ([28dcf2b](https://github.com/vansergen/rpc-request/commit/28dcf2b79397a5308c4137b6918a2597e8f05158))
+
 ### [6.0.1](https://github.com/vansergen/rpc-request/compare/v6.0.0...v6.0.1) (2022-05-15)
 
 ### Dependencies
