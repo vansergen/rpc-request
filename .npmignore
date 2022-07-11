@@ -1,7 +1,4 @@
-# nyc test coverage
-.nyc_output
-
-# Coverage directory used by nyc
+# Coverage directory used by c8
 coverage
 
 # c8 config - https://github.com/bcoe/c8
