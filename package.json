@@ -59,7 +59,7 @@
     "rpc",
     "fetch"
   ],
-  "author": "Sergey Bakulin",
+  "author": "Sergey Bakulin <sergey.bakulin.github@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vansergen/rpc-request/issues"
@@ -67,9 +67,10 @@
   "homepage": "https://github.com/vansergen/rpc-request#readme",
   "funding": {
     "type": "Coinbase Commerce",
-    "url": "https://commerce.coinbase.com/checkout/32948818-f4bb-4087-ae5e-1d29ecb86e64"
+    "url": "https://commerce.coinbase.com/checkout/eddfb0f7-20e7-4e0d-8e04-232bbdf0b397"
   },
   "directories": {
+    "doc": "docs",
     "test": "test"
   }
 }
