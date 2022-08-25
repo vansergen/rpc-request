@@ -1,13 +1,14 @@
 import { ok, fail, deepStrictEqual } from "node:assert";
 import { createServer, Server, STATUS_CODES } from "node:http";
-import Blob from "fetch-blob";
-import { Response, Headers } from "node-fetch";
+import { Response, Headers, setGlobalDispatcher, Agent } from "undici";
 import FetchClient, { UnsuccessfulFetch } from "../index.js";
 
 const port = 15474;
 const url = "some/url";
 const baseUrl = `http://localhost:${port}/api/`;
 const expected = { result: "ok" } as const;
+const agent = new Agent({ keepAliveTimeout: 10, keepAliveMaxTimeout: 10 });
+setGlobalDispatcher(agent);
 
 describe("FetchClient", () => {
   let server: Server;

@@ -1,4 +1,4 @@
-import fetch, { RequestInit, Response, Headers, HeadersInit } from "node-fetch";
+import { fetch, RequestInit, Response, Headers, HeadersInit } from "undici";
 
 export type ITransformType =
   | "arrayBuffer"
@@ -107,6 +107,13 @@ export class FetchClient<T = Response> {
       throw new UnsuccessfulFetch(response.statusText, response);
     } else if (transform === "raw") {
       return response as unknown as T;
+    } else if (transform === "buffer" || transform === "arrayBuffer") {
+      const arrayBuffer = await response.arrayBuffer();
+
+      const output: unknown =
+        transform === "arrayBuffer" ? arrayBuffer : Buffer.from(arrayBuffer);
+
+      return output as T;
     }
 
     const data = (await response[transform]()) as T;
