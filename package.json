@@ -22,7 +22,7 @@
     "coverage": "c8 npm test",
     "docs:build": "typedoc",
     "eslint": "eslint --ext .ts ./",
-    "eslint:fix": "npm run lint -- --fix",
+    "eslint:fix": "npm run eslint -- --fix",
     "install:clean": "npm install",
     "postbuild": "prettier -c -w dist",
     "postcoverage": "c8 report --reporter=lcov",
