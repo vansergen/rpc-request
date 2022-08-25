@@ -89,10 +89,6 @@ export class FetchClient<T = Response> {
     return this.fetch(path, { ..._fetchOptions, method: "OPTIONS" });
   }
 
-  public trace(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "TRACE" });
-  }
-
   public patch(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
     return this.fetch(path, { ..._fetchOptions, method: "PATCH" });
   }

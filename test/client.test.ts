@@ -30,7 +30,6 @@ describe("FetchClient", () => {
           break;
         case "HEAD":
         case "PUT":
-        case "TRACE":
           response.end();
           break;
         default:
@@ -151,13 +150,6 @@ describe("FetchClient", () => {
       const transform = "text";
       const client = new FetchClient<string>({}, { transform, baseUrl });
       const response = await client.put(url);
-      deepStrictEqual(response, "");
-    });
-
-    it("Makes a `TRACE` request", async () => {
-      const transform = "text";
-      const client = new FetchClient<string>({}, { transform, baseUrl });
-      const response = await client.trace(url);
       deepStrictEqual(response, "");
     });
   });
