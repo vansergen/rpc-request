@@ -23,11 +23,17 @@ export const DefaultTransform = "raw";
 
 export class UnsuccessfulFetch extends Error {
   readonly #response: Response;
+  readonly #data: unknown;
 
-  public constructor(message: string, response: Response) {
-    super(message);
+  public constructor(response: Response, data?: unknown) {
+    super(response.statusText);
     this.name = "UnsuccessfulFetch";
     this.#response = response;
+    this.#data = data;
+  }
+
+  public get data(): unknown {
+    return this.#data;
   }
 
   public get response(): Response {
@@ -104,7 +110,7 @@ export class FetchClient<T = Response> {
     const response = await fetch(url, fetchOptions);
 
     if (rejectNotOk && !response.ok) {
-      throw new UnsuccessfulFetch(response.statusText, response);
+      throw new UnsuccessfulFetch(response);
     } else if (transform === "raw") {
       return response as unknown as T;
     } else if (transform === "buffer" || transform === "arrayBuffer") {
