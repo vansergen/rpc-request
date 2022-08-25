@@ -2,9 +2,9 @@
   "name": "rpc-request",
   "version": "6.0.2",
   "description": "Simple wrapper of the node-fetch library in a class",
-  "main": "./build/index.js",
+  "main": "dist/index.js",
   "type": "module",
-  "types": "./build/index.d.ts",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vansergen/rpc-request.git"
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "build:remove": "rm -rf build",
+    "build:remove": "rm -rf dist",
     "ci:all": "npm ci && npm run prettier && npm run lint && npm run commitlint:all && npm test && npm publish --dry-run && npm run docs:build && npm run coverage",
     "commitlint": "commitlint --verbose",
     "commitlint:all": "npm run commitlint -- --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
@@ -24,7 +24,7 @@
     "install:clean": "npm install",
     "lint": "eslint --ext .ts ./",
     "lint:fix": "npm run lint -- --fix",
-    "postbuild": "prettier -c -w build",
+    "postbuild": "prettier -c -w dist",
     "postcoverage": "c8 report --reporter=lcov",
     "postdocs:build": "prettier -c -w docs",
     "postpublish": "npm run build:remove",
@@ -36,14 +36,14 @@
     "prettier": "prettier -c .",
     "prettier:write": "prettier -c -w .",
     "preversion": "npm run docs:build",
-    "test": "mocha 'build/test/**/*.test.js' --full-trace --bail"
+    "test": "mocha 'dist/test/**/*.test.js' --full-trace --bail"
   },
   "dependencies": {
     "node-fetch": "^3.2.10"
   },
   "devDependencies": {
-    "@b2broker/tsconfig": "^1.0.3",
     "@binden/semantic-release-config": "^1.1.0",
+    "@binden/tsconfig": "^1.0.0",
     "@types/mocha": "^9.1.1",
     "c8": "^7.12.0",
     "commitlint-config-b2broker": "^1.0.7",
