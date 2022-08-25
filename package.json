@@ -33,8 +33,7 @@
     "publish:test": "npm publish --dry-run",
     "release": "semantic-release",
     "test": "mocha 'build/test/**/*.spec.js' --full-trace --bail",
-    "test:ci": "npm run prepublishOnly && npm test && npm run postpublish",
-    "ts-node": "node --loader ts-node/esm"
+    "test:ci": "npm run prepublishOnly && npm test && npm run postpublish"
   },
   "dependencies": {
     "node-fetch": "^3.2.6"
@@ -53,7 +52,7 @@
     "mocha": "^10.0.0",
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.3",
-    "ts-node": "^10.8.2",
+    "ts-node": "^10.9.1",
     "typedoc": "^0.23.10"
   },
   "keywords": [
