@@ -39,7 +39,7 @@
     "test": "mocha 'build/test/**/*.test.js' --full-trace --bail"
   },
   "dependencies": {
-    "node-fetch": "^3.2.6"
+    "node-fetch": "^3.2.10"
   },
   "devDependencies": {
     "@b2broker/tsconfig": "^1.0.3",
