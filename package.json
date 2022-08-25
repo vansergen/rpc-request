@@ -20,10 +20,11 @@
     "commitlint:all": "npm run commitlint -- --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
     "coverage": "c8 npm test && c8 report --reporter=lcov",
     "coverage:ci": "npm run prepublishOnly && npm run coverage",
-    "docs:build": "rm -rf ./docs && typedoc && npm run prettier:write -- --ignore-path .prettierignore_docs",
+    "docs:build": "typedoc",
     "install:clean": "rm -fr node_modules && rm -f package-lock.json && npm install",
     "lint": "eslint --ext .ts ./",
     "lint:fix": "npm run lint -- --fix",
+    "postdocs:build": "prettier -c -w docs",
     "postpublish": "rm -rf ./build",
     "prepare": "husky install",
     "prepublishOnly": "npm run build && npm run prettier:write",
@@ -53,7 +54,7 @@
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.3",
     "ts-node": "^10.8.2",
-    "typedoc": "^0.23.7"
+    "typedoc": "^0.23.10"
   },
   "keywords": [
     "rpc",
