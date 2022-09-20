@@ -7,7 +7,7 @@ export type ITransformType =
   | "json"
   | "text";
 
-export interface IFetchOptions {
+export interface IFetchOptions extends RequestInit {
   base_url?: URL | string | null | undefined;
   transform?: ITransformType | null | undefined;
   reject?: boolean | undefined;
@@ -38,11 +38,13 @@ export class Fetch {
   readonly #reject: boolean;
   readonly #init: RequestInit;
 
-  public constructor(
-    { transform = null, base_url = null, reject = true }: IFetchOptions = {},
-    init: RequestInit = {}
-  ) {
-    this.#init = { ...init, headers: new Headers(init.headers) };
+  public constructor({
+    transform = null,
+    base_url = null,
+    reject = true,
+    ...init
+  }: IFetchOptions = {}) {
+    this.#init = init;
     this.#reject = reject;
     this.#transform = transform;
     this.#base_url = base_url === null ? null : new URL(base_url.toString());
