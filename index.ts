@@ -36,7 +36,7 @@ export class UnsuccessfulFetch extends Error {
   }
 }
 
-export class FetchClient<T = Response> {
+export class FetchClient {
   readonly #transform: ITransformType;
   readonly #base_url?: URL;
   readonly #reject: boolean;
@@ -66,35 +66,38 @@ export class FetchClient<T = Response> {
     this.#init = { ...this.#init, ...options, headers };
   }
 
-  public get(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "GET" });
+  public get<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "GET" });
   }
 
-  public head(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "HEAD" });
+  public head<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "HEAD" });
   }
 
-  public post(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "POST" });
+  public post<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "POST" });
   }
 
-  public put(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "PUT" });
+  public put<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "PUT" });
   }
 
-  public delete(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "DELETE" });
+  public delete<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "DELETE" });
   }
 
-  public options(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "OPTIONS" });
+  public options<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "OPTIONS" });
   }
 
-  public patch(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "PATCH" });
+  public patch<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "PATCH" });
   }
 
-  public async fetch(path = "", options: RequestInit = {}): Promise<T> {
+  public async fetch<T = unknown>(
+    path = "",
+    options: RequestInit = {}
+  ): Promise<T> {
     const url = new URL(path, this.#base_url).toString();
     const headers = FetchClient.#mergeHeaders(
       this.#init.headers,
