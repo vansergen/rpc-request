@@ -38,7 +38,7 @@ export class UnsuccessfulFetch extends Error {
 
 export class FetchClient {
   readonly #transform: ITransformType;
-  readonly #base_url?: URL;
+  readonly #base_url: URL | null;
   readonly #reject: boolean;
   #init: RequestInit;
 
@@ -49,21 +49,12 @@ export class FetchClient {
     this.#init = { ...init, headers: new Headers(init.headers) };
     this.#reject = reject ?? true;
     this.#transform = transform ?? DefaultTransform;
-    if (typeof base_url !== "undefined") {
-      this.#base_url = new URL(base_url.toString());
-    }
+    this.#base_url =
+      typeof base_url === "undefined" ? null : new URL(base_url.toString());
   }
 
-  public get fetchOptions(): RequestInit {
+  public get init(): RequestInit {
     return this.#init;
-  }
-
-  public set fetchOptions(options: RequestInit) {
-    const headers = FetchClient.#mergeHeaders(
-      this.#init.headers,
-      options.headers
-    );
-    this.#init = { ...this.#init, ...options, headers };
   }
 
   public get<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
@@ -98,7 +89,7 @@ export class FetchClient {
     path = "",
     options: RequestInit = {}
   ): Promise<T> {
-    const url = new URL(path, this.#base_url).toString();
+    const url = this.#base_url ? new URL(path, this.#base_url) : new URL(path);
     const headers = FetchClient.#mergeHeaders(
       this.#init.headers,
       options.headers
