@@ -1,157 +1,227 @@
 import { ok, fail, deepStrictEqual } from "node:assert";
-import { createServer, Server, STATUS_CODES } from "node:http";
-import { Response, Headers, setGlobalDispatcher, Agent } from "undici";
-import FetchClient, { UnsuccessfulFetch } from "../index.js";
+import { Blob } from "node:buffer";
+import { STATUS_CODES } from "node:http";
+import { Response, MockAgent, setGlobalDispatcher } from "undici";
+import Fetch, { UnsuccessfulFetch } from "../index.js";
 
-const port = 15474;
-const url = "some/url";
-const baseUrl = `http://localhost:${port}/api/`;
-const expected = { result: "ok" } as const;
-const agent = new Agent({ keepAliveTimeout: 10, keepAliveMaxTimeout: 10 });
-setGlobalDispatcher(agent);
+describe("Fetch", () => {
+  const port = 4321;
+  const prefix = "/api/";
+  const base_url = new URL(`http://www.example.com:${port}${prefix}`);
 
-describe("FetchClient", () => {
-  let server: Server;
+  const mockAgent = new MockAgent();
+  mockAgent.disableNetConnect();
+  setGlobalDispatcher(mockAgent);
+  const mockPool = mockAgent.get(base_url.origin);
 
-  beforeEach((done) => {
-    server = createServer((request, response) => {
-      if (request.url !== "/api/some/url") {
-        response.statusCode = 404;
-        response.end();
-        return;
-      }
-
-      switch (request.method) {
-        case "GET":
-        case "POST":
-        case "DELETE":
-        case "OPTIONS":
-        case "PATCH":
-          response.end(JSON.stringify(expected));
-          break;
-        case "HEAD":
-        case "PUT":
-          response.end();
-          break;
-        default:
-          response.statusCode = 405;
-          response.end();
-      }
-    }).listen(port, done);
+  it("Uses the default options", () => {
+    const fetch = new Fetch();
+    deepStrictEqual(fetch.reject, true);
+    deepStrictEqual(fetch.base_url, null);
+    deepStrictEqual(fetch.transform, null);
+    deepStrictEqual(fetch.init, {});
   });
 
-  afterEach((done) => server.close(done));
+  it("Rejects when no `base_url` is provided", async () => {
+    const client = new Fetch();
+    const path = "/v2/bank-transfer";
 
-  it("Uses 'raw' as the default `transform` parameter", async () => {
-    const client = new FetchClient({}, { baseUrl });
-    const response = await client.fetch(url);
-    ok(response instanceof Response);
-  });
-
-  it("Rejects on not ok responses by default", async () => {
-    const client = new FetchClient();
     try {
-      await client.fetch(`${baseUrl}not-exists`);
+      await client.fetch(path);
       fail("Should throw an error");
     } catch (error) {
-      ok(error instanceof UnsuccessfulFetch);
-      deepStrictEqual(error.message, STATUS_CODES[404]);
-      deepStrictEqual(error.name, "UnsuccessfulFetch");
-      ok(error.response instanceof Response);
+      ok(error instanceof TypeError);
+      deepStrictEqual(error.message, "Invalid URL");
     }
   });
 
-  it("Updates `fetchOptions`", () => {
-    const client = new FetchClient();
-    deepStrictEqual(client.fetchOptions, { headers: new Headers({}) });
-    const headers = { "X-HEADER": "1" };
-    client.fetchOptions = { headers };
-    deepStrictEqual(client.fetchOptions, { headers: new Headers(headers) });
+  it("Returns raw response on not ok responses (transform === null)", async () => {
+    const client = new Fetch({ base_url });
+    const path = "v2/bank-transfer";
+    const method = "POST";
+    const headers = { "x-token-secret": "SuperSecretToken" };
+    const body = JSON.stringify({ recepient: "1234567890", amount: "100" });
+    const status = 404;
+    const expected = { message: "v2 is not supported" };
+
+    mockPool
+      .intercept({ path: `${prefix}${path}`, method, headers, body })
+      .reply(status, expected);
+
+    deepStrictEqual(client.base_url, base_url);
+    const response = await client.fetch<Response>(path, {
+      method,
+      headers,
+      body,
+    });
+    ok(response instanceof Response);
+    deepStrictEqual(response.bodyUsed, false);
+    deepStrictEqual(response.status, 404);
+    const actual = await response.json();
+    deepStrictEqual(response.bodyUsed, true);
+    deepStrictEqual(actual, expected);
   });
 
-  it("Transforms the response to `Buffer`", async () => {
-    const transform = "buffer";
-    const client = new FetchClient<Buffer>({}, { transform, baseUrl });
-    const response = await client.fetch(url);
-    ok(response instanceof Buffer);
+  it("Rejects not ok responses by default", async () => {
+    const client = new Fetch({ base_url, transform: "json" });
+    const path = "v2/bank-transfer";
+    const method = "POST";
+    const headers = { "x-token-secret": "SuperSecretToken" };
+    const body = JSON.stringify({ recepient: "1234567890", amount: "100" });
+
+    const status = 404;
+    const expected = { message: "v2 is not supported" };
+
+    mockPool
+      .intercept({ path: `${prefix}${path}`, method, headers, body })
+      .reply(status, expected);
+
+    try {
+      deepStrictEqual(client.base_url, base_url);
+      await client.fetch<never>(path, { method, headers, body });
+      fail("Should throw an error");
+    } catch (error) {
+      ok(error instanceof UnsuccessfulFetch);
+      deepStrictEqual(error.message, STATUS_CODES[status]);
+      deepStrictEqual(error.name, "UnsuccessfulFetch");
+      ok(error.response instanceof Response);
+      deepStrictEqual(error.response.bodyUsed, true);
+      deepStrictEqual(error.data, expected);
+    }
   });
 
   it("Transforms the response to `ArrayBuffer`", async () => {
     const transform = "arrayBuffer";
-    const client = new FetchClient<ArrayBuffer>({}, { transform, baseUrl });
-    const response = await client.fetch(url);
+    const headers = { "x-token-secret": "SuperSecretToken" };
+    const client = new Fetch({ base_url, transform, headers });
+    const path = "v2/ok";
+    const status = 200;
+    const expected = { message: "ok" };
+
+    mockPool
+      .intercept({ path: `${prefix}${path}`, method: "GET", headers })
+      .reply(status, expected);
+
+    deepStrictEqual(client.base_url, base_url);
+    const response = await client.fetch<ArrayBuffer>(path);
     ok(response instanceof ArrayBuffer);
+
+    const text = new TextDecoder().decode(response);
+    deepStrictEqual(JSON.parse(text), expected);
+  });
+
+  it("Transforms the response to `Buffer`", async () => {
+    const transform = "buffer";
+    const headers = { "x-token-secret": "SuperSecretToken" };
+    const client = new Fetch({ base_url, transform, headers });
+    const path = "v2/ok";
+    const status = 200;
+    const expected = { message: "ok" };
+
+    mockPool
+      .intercept({ path: `${prefix}${path}`, method: "GET", headers })
+      .reply(status, expected);
+
+    deepStrictEqual(client.base_url, base_url);
+    const response = await client.fetch<Buffer>(path);
+    ok(response instanceof Buffer);
+
+    const text = new TextDecoder().decode(response);
+    deepStrictEqual(JSON.parse(text), expected);
   });
 
   it("Transforms the response to `Blob`", async () => {
     const transform = "blob";
-    const client = new FetchClient<Blob>({}, { transform, baseUrl });
-    const response = await client.fetch(url);
+    const method = "PATCH";
+    const headers = { "x-token-secret": "SuperSecretToken" };
+    const client = new Fetch({ base_url, transform, headers, method });
+    const path = "v2/ok";
+    const status = 200;
+    const expected = { message: "ok" };
+
+    mockPool
+      .intercept({ path: `${prefix}${path}`, method, headers })
+      .reply(status, expected);
+    deepStrictEqual(client.base_url, base_url);
+
+    const response = await client.fetch<Blob>(path);
     ok(response instanceof Blob);
+
+    const text = await response.text();
+    deepStrictEqual(JSON.parse(text), expected);
   });
 
   it("Transforms the response to `string`", async () => {
     const transform = "text";
-    const client = new FetchClient<string>({}, { transform, baseUrl });
-    const response = await client.fetch(url);
-    deepStrictEqual(typeof response, "string");
+    const headers = { "x-token-secret": "SuperSecretToken" };
+    const client = new Fetch({ base_url, transform, headers });
+    const path = "v2/ok";
+    const status = 200;
+    const expected = { message: "ok" };
+
+    mockPool
+      .intercept({ path: `${prefix}${path}`, method: "GET", headers })
+      .reply(status, expected);
+
+    deepStrictEqual(client.base_url, base_url);
+
+    const response = await client.fetch<string>(path);
+    ok(typeof response === "string");
+    deepStrictEqual(JSON.parse(response), expected);
   });
 
   it("Transforms the response to `json`", async () => {
     const transform = "json";
-    const client = new FetchClient<unknown>({}, { transform, baseUrl });
-    const response = await client.fetch(url);
+    const method = "POST";
+    const headers = { "x-token-secret": "SuperSecretToken" };
+    const client = new Fetch({ base_url, transform, headers, method });
+    const path = "v2/ok";
+    const status = 200;
+    const expected = { message: "ok" };
+
+    mockPool
+      .intercept({ path: `${prefix}${path}`, method, headers })
+      .reply(status, expected);
+
+    const response = await client.fetch<{ message: string }>(path);
     deepStrictEqual(response, expected);
   });
 
   describe("HTTP Methods", () => {
-    it("Makes a `GET` request", async () => {
-      const transform = "json";
-      const client = new FetchClient<unknown>({}, { transform, baseUrl });
-      const response = await client.get(url);
-      deepStrictEqual(response, expected);
-    });
+    const methods = [
+      "get",
+      "post",
+      "delete",
+      "options",
+      "patch",
+      "head",
+      "put",
+    ] as const;
 
-    it("Makes a `POST` request", async () => {
-      const transform = "json";
-      const client = new FetchClient<unknown>({}, { transform, baseUrl });
-      const response = await client.post(url);
-      deepStrictEqual(response, expected);
-    });
+    for (const method of methods) {
+      it(`Makes a ${method.toUpperCase()} request with the .${method}() method`, async () => {
+        const transform = "json";
+        const headers = { "x-token-secret": "SuperSecretToken" };
+        const client = new Fetch({ base_url, transform, headers });
+        const path = "v2/ok";
+        const status = 200;
+        const expected = { message: "ok" };
+        mockPool
+          .intercept({ path: `${prefix}${path}`, method, headers })
+          .reply(status, expected);
 
-    it("Makes a `DELETE` request", async () => {
-      const transform = "json";
-      const client = new FetchClient<unknown>({}, { transform, baseUrl });
-      const response = await client.delete(url);
-      deepStrictEqual(response, expected);
-    });
+        deepStrictEqual(client.base_url, base_url);
 
-    it("Makes a `OPTIONS` request", async () => {
-      const transform = "json";
-      const client = new FetchClient<unknown>({}, { transform, baseUrl });
-      const response = await client.options(url);
-      deepStrictEqual(response, expected);
-    });
-
-    it("Makes a `PATCH` request", async () => {
-      const transform = "json";
-      const client = new FetchClient<unknown>({}, { transform, baseUrl });
-      const response = await client.patch(url);
-      deepStrictEqual(response, expected);
-    });
-
-    it("Makes a `HEAD` request", async () => {
-      const transform = "text";
-      const client = new FetchClient<string>({}, { transform, baseUrl });
-      const response = await client.head(url);
-      deepStrictEqual(response, "");
-    });
-
-    it("Makes a `PUT` request", async () => {
-      const transform = "text";
-      const client = new FetchClient<string>({}, { transform, baseUrl });
-      const response = await client.put(url);
-      deepStrictEqual(response, "");
-    });
+        if (method === "head") {
+          const response = await client.head(path);
+          ok(response instanceof Response);
+          deepStrictEqual(response.status, status);
+          deepStrictEqual(response.bodyUsed, false);
+        } else {
+          const response = await client[method]<typeof expected>(path);
+          deepStrictEqual(response, expected);
+        }
+      });
+    }
   });
 });
