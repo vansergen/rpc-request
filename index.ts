@@ -5,17 +5,13 @@ export type ITransformType =
   | "blob"
   | "buffer"
   | "json"
-  | "raw"
   | "text";
 
 export interface IFetchOptions {
   base_url?: URL | string | null | undefined;
-  transform?: ITransformType | undefined;
+  transform?: ITransformType | null | undefined;
   reject?: boolean | undefined;
 }
-
-export const DefaultTransform = "raw";
-
 export class UnsuccessfulFetch extends Error {
   readonly #response: Response;
   readonly #data: unknown;
@@ -37,17 +33,13 @@ export class UnsuccessfulFetch extends Error {
 }
 
 export class Fetch {
-  readonly #transform: ITransformType;
+  readonly #transform: ITransformType | null;
   readonly #base_url: URL | null;
   readonly #reject: boolean;
   readonly #init: RequestInit;
 
   public constructor(
-    {
-      transform = DefaultTransform,
-      base_url = null,
-      reject = true,
-    }: IFetchOptions = {},
+    { transform = null, base_url = null, reject = true }: IFetchOptions = {},
     init: RequestInit = {}
   ) {
     this.#init = { ...init, headers: new Headers(init.headers) };
@@ -60,7 +52,7 @@ export class Fetch {
     return this.#reject;
   }
 
-  public get transform(): ITransformType {
+  public get transform(): ITransformType | null {
     return this.#transform;
   }
 
@@ -109,7 +101,7 @@ export class Fetch {
     const init = { ...this.#init, ...options, headers };
     const response = await fetch(url, init);
 
-    if (this.#transform === "raw") {
+    if (this.#transform === null) {
       return response as unknown as T;
     }
 
