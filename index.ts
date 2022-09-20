@@ -9,7 +9,7 @@ export type ITransformType =
   | "text";
 
 export interface IFetchOptions {
-  base_url?: URL | string | undefined;
+  base_url?: URL | string | null | undefined;
   transform?: ITransformType | undefined;
   reject?: boolean | undefined;
 }
@@ -43,14 +43,29 @@ export class FetchClient {
   readonly #init: RequestInit;
 
   public constructor(
-    { transform, base_url, reject }: IFetchOptions = {},
+    {
+      transform = DefaultTransform,
+      base_url = null,
+      reject = true,
+    }: IFetchOptions = {},
     init: RequestInit = {}
   ) {
     this.#init = { ...init, headers: new Headers(init.headers) };
-    this.#reject = reject ?? true;
-    this.#transform = transform ?? DefaultTransform;
-    this.#base_url =
-      typeof base_url === "undefined" ? null : new URL(base_url.toString());
+    this.#reject = reject;
+    this.#transform = transform;
+    this.#base_url = base_url === null ? null : new URL(base_url.toString());
+  }
+
+  public get reject(): boolean {
+    return this.#reject;
+  }
+
+  public get transform(): ITransformType {
+    return this.#transform;
+  }
+
+  public get base_url(): URL | null {
+    return this.#base_url ? new URL(this.#base_url) : null;
   }
 
   public get init(): RequestInit {
