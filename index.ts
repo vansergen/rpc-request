@@ -40,7 +40,7 @@ export class FetchClient {
   readonly #transform: ITransformType;
   readonly #base_url: URL | null;
   readonly #reject: boolean;
-  #init: RequestInit;
+  readonly #init: RequestInit;
 
   public constructor(
     { transform, base_url, reject }: IFetchOptions = {},
@@ -61,8 +61,8 @@ export class FetchClient {
     return this.fetch<T>(path, { ...init, method: "GET" });
   }
 
-  public head<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
-    return this.fetch<T>(path, { ...init, method: "HEAD" });
+  public head(path = "", init: RequestInit = {}): Promise<Response> {
+    return this.fetch<Response>(path, { ...init, method: "HEAD" });
   }
 
   public post<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
@@ -97,26 +97,35 @@ export class FetchClient {
     const init = { ...this.#init, ...options, headers };
     const response = await fetch(url, init);
 
-    if (this.#reject && !response.ok) {
-      throw new UnsuccessfulFetch(response);
-    } else if (this.#transform === "raw") {
+    if (this.#transform === "raw") {
       return response as unknown as T;
+    }
+
+    let body: T;
+
+    if (options.method === "HEAD") {
+      body = (await response.text()) as unknown as T;
     } else if (
       this.#transform === "buffer" ||
       this.#transform === "arrayBuffer"
     ) {
       const arrayBuffer = await response.arrayBuffer();
-
-      const output: unknown =
+      const output =
         this.#transform === "arrayBuffer"
           ? arrayBuffer
           : Buffer.from(arrayBuffer);
-
-      return output as T;
+      body = output as unknown as T;
+    } else {
+      body = (await response[this.#transform]()) as T;
     }
 
-    const data = (await response[this.#transform]()) as T;
-    return data;
+    if (this.#reject && !response.ok) {
+      throw new UnsuccessfulFetch(response, body);
+    } else if (options.method === "HEAD") {
+      return response as unknown as T;
+    }
+
+    return body;
   }
 
   static #mergeHeaders(...headersInit: (HeadersInit | undefined)[]): Headers {
