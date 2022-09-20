@@ -1,7 +1,7 @@
 {
   "name": "rpc-request",
   "version": "6.0.2",
-  "description": "Simple wrapper of the fetch API (undici) in a class",
+  "description": "A simple wrapper of the Fetch API in a class (based on undici)",
   "main": "dist/index.js",
   "type": "module",
   "types": "dist/index.d.ts",
@@ -32,11 +32,10 @@
     "preinstall:clean": "rm -rf node_modules package-lock.json",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
-    "pretest": "npm run build",
     "prettier": "prettier -c .",
     "prettier:write": "prettier -c -w .",
     "preversion": "npm run docs:build",
-    "test": "mocha 'dist/test/**/*.test.js' --full-trace --bail"
+    "test": "mocha"
   },
   "dependencies": {
     "undici": "^5.10.0"
