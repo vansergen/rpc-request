@@ -22,7 +22,7 @@ const base_url = new URL("http://worldtimeapi.org/");
 const reject = true;
 // Plus anything from `RequestInit`
 const headers = { "X-TOKEN": "123" };
-const client = new FetchClient({ transform, base_url, reject, headers });
+const client = new Fetch({ transform, base_url, reject, headers });
 const response = await client.get("/api/ip");
 ```
 
