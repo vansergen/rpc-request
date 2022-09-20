@@ -36,7 +36,7 @@ export class UnsuccessfulFetch extends Error {
   }
 }
 
-export class FetchClient {
+export class Fetch {
   readonly #transform: ITransformType;
   readonly #base_url: URL | null;
   readonly #reject: boolean;
@@ -105,10 +105,7 @@ export class FetchClient {
     options: RequestInit = {}
   ): Promise<T> {
     const url = this.#base_url ? new URL(path, this.#base_url) : new URL(path);
-    const headers = FetchClient.#mergeHeaders(
-      this.#init.headers,
-      options.headers
-    );
+    const headers = Fetch.#mergeHeaders(this.#init.headers, options.headers);
     const init = { ...this.#init, ...options, headers };
     const response = await fetch(url, init);
 
@@ -155,4 +152,4 @@ export class FetchClient {
   }
 }
 
-export default FetchClient;
+export default Fetch;
