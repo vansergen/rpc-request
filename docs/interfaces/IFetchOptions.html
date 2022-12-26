@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <title>UnsuccessfulFetch | rpc-request</title>
+    <title>IFetchOptions | rpc-request</title>
     <meta name="description" content="Documentation for rpc-request" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/style.css" />
@@ -75,17 +75,17 @@
         <div class="tsd-page-title">
           <ul class="tsd-breadcrumb">
             <li><a href="../modules.html">rpc-request</a></li>
-            <li><a href="UnsuccessfulFetch.html">UnsuccessfulFetch</a></li>
+            <li><a href="IFetchOptions.html">IFetchOptions</a></li>
           </ul>
-          <h1>Class UnsuccessfulFetch</h1>
+          <h1>Interface IFetchOptions</h1>
         </div>
         <section class="tsd-panel tsd-hierarchy">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
             <li>
-              <span class="tsd-signature-type">Error</span>
+              <span class="tsd-signature-type">RequestInit</span>
               <ul class="tsd-hierarchy">
-                <li><span class="target">UnsuccessfulFetch</span></li>
+                <li><span class="target">IFetchOptions</span></li>
               </ul>
             </li>
           </ul>
@@ -95,8 +95,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L16"
-                >index.ts:16</a
+                href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L11"
+                >index.ts:11</a
               >
             </li>
           </ul>
@@ -122,43 +122,11 @@
               </summary>
               <div class="tsd-accordion-details">
                 <section class="tsd-index-section">
-                  <h3 class="tsd-index-heading">Constructors</h3>
-                  <div class="tsd-index-list">
-                    <a
-                      href="UnsuccessfulFetch.html#constructor"
-                      class="tsd-index-link tsd-kind-constructor tsd-parent-kind-class"
-                      ><svg
-                        class="tsd-kind-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <rect
-                          fill="var(--color-icon-background)"
-                          stroke="#4D7FFF"
-                          stroke-width="1.5"
-                          x="1"
-                          y="1"
-                          width="22"
-                          height="22"
-                          rx="12"
-                          id="icon-512-path"
-                        ></rect>
-                        <path
-                          d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z"
-                          fill="var(--color-text)"
-                          id="icon-512-text"
-                        ></path></svg
-                      ><span>constructor</span></a
-                    >
-                  </div>
-                </section>
-                <section class="tsd-index-section">
                   <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
                     <a
-                      href="UnsuccessfulFetch.html#_data"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"
+                      href="IFetchOptions.html#base_url"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -181,11 +149,11 @@
                           fill="var(--color-text)"
                           id="icon-1024-text"
                         ></path></svg
-                      ><span>#data</span></a
+                      ><span>base_<wbr />url?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#_response"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"
+                      href="IFetchOptions.html#body"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -194,11 +162,11 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>#response</span></a
+                      ><span>body?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#cause"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                      href="IFetchOptions.html#credentials"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -207,11 +175,11 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>cause?</span></a
+                      ><span>credentials?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#message"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                      href="IFetchOptions.html#dispatcher"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -220,11 +188,11 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>message</span></a
+                      ><span>dispatcher?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#name"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                      href="IFetchOptions.html#duplex"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -233,11 +201,11 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>name</span></a
+                      ><span>duplex?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#stack"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                      href="IFetchOptions.html#headers"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -246,11 +214,11 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>stack?</span></a
+                      ><span>headers?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#prepareStackTrace"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                      href="IFetchOptions.html#integrity"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -259,11 +227,11 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>prepare<wbr />Stack<wbr />Trace?</span></a
+                      ><span>integrity?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#stackTraceLimit"
-                      class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                      href="IFetchOptions.html#keepalive"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
@@ -272,84 +240,124 @@
                       >
                         <use href="#icon-1024-path"></use>
                         <use href="#icon-1024-text"></use></svg
-                      ><span>stack<wbr />Trace<wbr />Limit</span></a
+                      ><span>keepalive?</span></a
                     >
-                  </div>
-                </section>
-                <section class="tsd-index-section">
-                  <h3 class="tsd-index-heading">Accessors</h3>
-                  <div class="tsd-index-list">
                     <a
-                      href="UnsuccessfulFetch.html#data"
-                      class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class"
+                      href="IFetchOptions.html#method"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                       >
-                        <rect
-                          fill="var(--color-icon-background)"
-                          stroke="#FF4D4D"
-                          stroke-width="1.5"
-                          x="1"
-                          y="1"
-                          width="22"
-                          height="22"
-                          rx="12"
-                          id="icon-262144-path"
-                        ></rect>
-                        <path
-                          d="M8.85 16L11.13 7.24H12.582L14.85 16H13.758L13.182 13.672H10.53L9.954 16H8.85ZM10.746 12.76H12.954L12.282 10.06C12.154 9.548 12.054 9.12 11.982 8.776C11.91 8.432 11.866 8.208 11.85 8.104C11.834 8.208 11.79 8.432 11.718 8.776C11.646 9.12 11.546 9.544 11.418 10.048L10.746 12.76Z"
-                          fill="var(--color-text)"
-                          id="icon-262144-text"
-                        ></path></svg
-                      ><span>data</span></a
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>method?</span></a
                     >
                     <a
-                      href="UnsuccessfulFetch.html#response"
-                      class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class"
+                      href="IFetchOptions.html#mode"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                       >
-                        <use href="#icon-262144-path"></use>
-                        <use href="#icon-262144-text"></use></svg
-                      ><span>response</span></a
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>mode?</span></a
                     >
-                  </div>
-                </section>
-                <section class="tsd-index-section">
-                  <h3 class="tsd-index-heading">Methods</h3>
-                  <div class="tsd-index-list">
                     <a
-                      href="UnsuccessfulFetch.html#captureStackTrace"
-                      class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                      href="IFetchOptions.html#redirect"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                       ><svg
                         class="tsd-kind-icon"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                       >
-                        <rect
-                          fill="var(--color-icon-background)"
-                          stroke="#FF4DB8"
-                          stroke-width="1.5"
-                          x="1"
-                          y="1"
-                          width="22"
-                          height="22"
-                          rx="12"
-                          id="icon-2048-path"
-                        ></rect>
-                        <path
-                          d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z"
-                          fill="var(--color-text)"
-                          id="icon-2048-text"
-                        ></path></svg
-                      ><span>capture<wbr />Stack<wbr />Trace</span></a
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>redirect?</span></a
+                    >
+                    <a
+                      href="IFetchOptions.html#referrer"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>referrer?</span></a
+                    >
+                    <a
+                      href="IFetchOptions.html#referrerPolicy"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>referrer<wbr />Policy?</span></a
+                    >
+                    <a
+                      href="IFetchOptions.html#reject"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>reject?</span></a
+                    >
+                    <a
+                      href="IFetchOptions.html#signal"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>signal?</span></a
+                    >
+                    <a
+                      href="IFetchOptions.html#transform"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>transform?</span></a
+                    >
+                    <a
+                      href="IFetchOptions.html#window"
+                      class="tsd-index-link tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                      ><svg
+                        class="tsd-kind-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <use href="#icon-1024-path"></use>
+                        <use href="#icon-1024-text"></use></svg
+                      ><span>window?</span></a
                     >
                   </div>
                 </section>
@@ -358,15 +366,16 @@
           </section>
         </section>
         <section class="tsd-panel-group tsd-member-group">
-          <h2>Constructors</h2>
+          <h2>Properties</h2>
           <section
-            class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class"
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
           >
-            <a id="constructor" class="tsd-anchor"></a>
+            <a id="base_url" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
-              <span>constructor</span
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>base_<wbr />url</span
               ><a
-                href="#constructor"
+                href="#base_url"
                 aria-label="Permalink"
                 class="tsd-anchor-icon"
                 ><svg
@@ -394,140 +403,68 @@
                   ></path></svg
               ></a>
             </h3>
-            <ul
-              class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class"
-            >
-              <li
-                class="tsd-signature tsd-anchor-link"
-                id="constructor.new_UnsuccessfulFetch"
-              >
-                new <wbr />Unsuccessful<wbr />Fetch<span
-                  class="tsd-signature-symbol"
-                  >(</span
-                >response<span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">Response</span>, data<span
-                  class="tsd-signature-symbol"
-                  >?: </span
-                ><span class="tsd-signature-type">unknown</span
-                ><span class="tsd-signature-symbol">)</span
-                ><span class="tsd-signature-symbol">: </span
-                ><a
-                  href="UnsuccessfulFetch.html"
-                  class="tsd-signature-type"
-                  data-tsd-kind="Class"
-                  >UnsuccessfulFetch</a
-                ><a
-                  href="#constructor.new_UnsuccessfulFetch"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg
-                    class="icon icon-tabler icon-tabler-link"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <use href="#icon-anchor-a"></use>
-                    <use href="#icon-anchor-b"></use>
-                    <use href="#icon-anchor-c"></use></svg
-                ></a>
-              </li>
-              <li class="tsd-description">
-                <div class="tsd-parameters">
-                  <h4 class="tsd-parameters-title">Parameters</h4>
-                  <ul class="tsd-parameter-list">
-                    <li>
-                      <h5>
-                        response:
-                        <span class="tsd-signature-type">Response</span>
-                      </h5>
-                    </li>
-                    <li>
-                      <h5>
-                        <code class="tsd-tag ts-flagOptional">Optional</code>
-                        data: <span class="tsd-signature-type">unknown</span>
-                      </h5>
-                    </li>
-                  </ul>
-                </div>
-                <h4 class="tsd-returns-title">
-                  Returns
-                  <a
-                    href="UnsuccessfulFetch.html"
-                    class="tsd-signature-type"
-                    data-tsd-kind="Class"
-                    >UnsuccessfulFetch</a
-                  >
-                </h4>
-                <aside class="tsd-sources">
-                  <p>Overrides Error.constructor</p>
-                  <ul>
-                    <li>
-                      Defined in
-                      <a
-                        href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L20"
-                        >index.ts:20</a
-                      >
-                    </li>
-                  </ul>
-                </aside>
-              </li>
-            </ul>
-          </section>
-        </section>
-        <section class="tsd-panel-group tsd-member-group">
-          <h2>Properties</h2>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"
-          >
-            <a id="_data" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <code class="tsd-tag ts-flagPrivate">Private</code>
-              <code class="tsd-tag ts-flagReadonly">Readonly</code>
-              <span>#data</span
-              ><a href="#_data" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
             <div class="tsd-signature">
-              #data<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">unknown</span>
+              base_<wbr />url<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">null</span
+              ><span class="tsd-signature-symbol"> | </span
+              ><span class="tsd-signature-type">string</span
+              ><span class="tsd-signature-symbol"> | </span
+              ><span class="tsd-signature-type">URL</span>
             </div>
             <aside class="tsd-sources">
               <ul>
                 <li>
                   Defined in
                   <a
-                    href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L18"
-                    >index.ts:18</a
+                    href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L12"
+                    >index.ts:12</a
                   >
                 </li>
               </ul>
             </aside>
           </section>
           <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
           >
-            <a id="_response" class="tsd-anchor"></a>
+            <a id="body" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
-              <code class="tsd-tag ts-flagPrivate">Private</code>
-              <code class="tsd-tag ts-flagReadonly">Readonly</code>
-              <span>#response</span
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>body</span
+              ><a href="#body" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              body<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">BodyInit</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.body</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:107</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="credentials" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>credentials</span
               ><a
-                href="#_response"
+                href="#credentials"
                 aria-label="Permalink"
                 class="tsd-anchor-icon"
                 ><svg
@@ -545,29 +482,410 @@
               ></a>
             </h3>
             <div class="tsd-signature">
-              #response<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">Response</span>
+              credentials<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">RequestCredentials</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.credentials</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:111</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="dispatcher" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>dispatcher</span
+              ><a
+                href="#dispatcher"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              dispatcher<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">Dispatcher</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.dispatcher</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:116</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="duplex" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>duplex</span
+              ><a href="#duplex" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              duplex<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">&quot;half&quot;</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.duplex</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:117</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="headers" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>headers</span
+              ><a href="#headers" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              headers<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">HeadersInit</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.headers</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:106</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="integrity" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>integrity</span
+              ><a
+                href="#integrity"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              integrity<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">string</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.integrity</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:109</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="keepalive" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>keepalive</span
+              ><a
+                href="#keepalive"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              keepalive<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">boolean</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.keepalive</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:105</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="method" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>method</span
+              ><a href="#method" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              method<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">string</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.method</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:104</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="mode" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>mode</span
+              ><a href="#mode" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              mode<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">RequestMode</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.mode</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:112</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="redirect" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>redirect</span
+              ><a
+                href="#redirect"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              redirect<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">RequestRedirect</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.redirect</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:108</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="referrer" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>referrer</span
+              ><a
+                href="#referrer"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              referrer<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">string</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.referrer</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:113</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+          >
+            <a id="referrerPolicy" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>referrer<wbr />Policy</span
+              ><a
+                href="#referrerPolicy"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              referrer<wbr />Policy<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">ReferrerPolicy</span>
+            </div>
+            <aside class="tsd-sources">
+              <p>Inherited from RequestInit.referrerPolicy</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:114</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+          >
+            <a id="reject" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>reject</span
+              ><a href="#reject" aria-label="Permalink" class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              reject<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">boolean</span>
             </div>
             <aside class="tsd-sources">
               <ul>
                 <li>
                   Defined in
                   <a
-                    href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L17"
-                    >index.ts:17</a
+                    href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L14"
+                    >index.ts:14</a
                   >
                 </li>
               </ul>
             </aside>
           </section>
           <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
           >
-            <a id="cause" class="tsd-anchor"></a>
+            <a id="signal" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
               <code class="tsd-tag ts-flagOptional">Optional</code>
-              <span>cause</span
-              ><a href="#cause" aria-label="Permalink" class="tsd-anchor-icon"
+              <span>signal</span
+              ><a href="#signal" aria-label="Permalink" class="tsd-anchor-icon"
                 ><svg
                   class="icon icon-tabler icon-tabler-link"
                   viewBox="0 0 24 24"
@@ -583,95 +901,72 @@
               ></a>
             </h3>
             <div class="tsd-signature">
-              cause<span class="tsd-signature-symbol">?:</span>
-              <span class="tsd-signature-type">unknown</span>
+              signal<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">AbortSignal</span>
             </div>
             <aside class="tsd-sources">
-              <p>Inherited from Error.cause</p>
+              <p>Inherited from RequestInit.signal</p>
+              <ul>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:110</li>
+              </ul>
+            </aside>
+          </section>
+          <section
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"
+          >
+            <a id="transform" class="tsd-anchor"></a>
+            <h3 class="tsd-anchor-link">
+              <code class="tsd-tag ts-flagOptional">Optional</code>
+              <span>transform</span
+              ><a
+                href="#transform"
+                aria-label="Permalink"
+                class="tsd-anchor-icon"
+                ><svg
+                  class="icon icon-tabler icon-tabler-link"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="#icon-anchor-a"></use>
+                  <use href="#icon-anchor-b"></use>
+                  <use href="#icon-anchor-c"></use></svg
+              ></a>
+            </h3>
+            <div class="tsd-signature">
+              transform<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">null</span
+              ><span class="tsd-signature-symbol"> | </span
+              ><a
+                href="../types/ITransformType.html"
+                class="tsd-signature-type"
+                data-tsd-kind="Type alias"
+                >ITransformType</a
+              >
+            </div>
+            <aside class="tsd-sources">
               <ul>
                 <li>
                   Defined in
-                  node_modules/typescript/lib/lib.es2022.error.d.ts:26
+                  <a
+                    href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L13"
+                    >index.ts:13</a
+                  >
                 </li>
               </ul>
             </aside>
           </section>
           <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
           >
-            <a id="message" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>message</span
-              ><a href="#message" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              message<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">string</span>
-            </div>
-            <aside class="tsd-sources">
-              <p>Inherited from Error.message</p>
-              <ul>
-                <li>
-                  Defined in node_modules/typescript/lib/lib.es5.d.ts:1054
-                </li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-          >
-            <a id="name" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>name</span
-              ><a href="#name" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              name<span class="tsd-signature-symbol">:</span>
-              <span class="tsd-signature-type">string</span>
-            </div>
-            <aside class="tsd-sources">
-              <p>Inherited from Error.name</p>
-              <ul>
-                <li>
-                  Defined in node_modules/typescript/lib/lib.es5.d.ts:1053
-                </li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-          >
-            <a id="stack" class="tsd-anchor"></a>
+            <a id="window" class="tsd-anchor"></a>
             <h3 class="tsd-anchor-link">
               <code class="tsd-tag ts-flagOptional">Optional</code>
-              <span>stack</span
-              ><a href="#stack" aria-label="Permalink" class="tsd-anchor-icon"
+              <span>window</span
+              ><a href="#window" aria-label="Permalink" class="tsd-anchor-icon"
                 ><svg
                   class="icon icon-tabler icon-tabler-link"
                   viewBox="0 0 24 24"
@@ -687,361 +982,15 @@
               ></a>
             </h3>
             <div class="tsd-signature">
-              stack<span class="tsd-signature-symbol">?:</span>
-              <span class="tsd-signature-type">string</span>
+              window<span class="tsd-signature-symbol">?:</span>
+              <span class="tsd-signature-type">null</span>
             </div>
             <aside class="tsd-sources">
-              <p>Inherited from Error.stack</p>
+              <p>Inherited from RequestInit.window</p>
               <ul>
-                <li>
-                  Defined in node_modules/typescript/lib/lib.es5.d.ts:1055
-                </li>
+                <li>Defined in node_modules/undici/types/fetch.d.ts:115</li>
               </ul>
             </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-          >
-            <a id="prepareStackTrace" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <code class="tsd-tag ts-flagStatic">Static</code>
-              <code class="tsd-tag ts-flagOptional">Optional</code>
-              <span>prepare<wbr />Stack<wbr />Trace</span
-              ><a
-                href="#prepareStackTrace"
-                aria-label="Permalink"
-                class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              prepare<wbr />Stack<wbr />Trace<span class="tsd-signature-symbol"
-                >?:</span
-              >
-              <span class="tsd-signature-symbol">(</span
-              ><span class="tsd-signature-symbol">(</span>err<span
-                class="tsd-signature-symbol"
-                >: </span
-              ><span class="tsd-signature-type">Error</span>, stackTraces<span
-                class="tsd-signature-symbol"
-                >: </span
-              ><span class="tsd-signature-type">CallSite</span
-              ><span class="tsd-signature-symbol">[]</span
-              ><span class="tsd-signature-symbol">)</span
-              ><span class="tsd-signature-symbol"> =&gt; </span
-              ><span class="tsd-signature-type">any</span
-              ><span class="tsd-signature-symbol">)</span>
-            </div>
-            <div class="tsd-type-declaration">
-              <h4>Type declaration</h4>
-              <ul class="tsd-parameters">
-                <li class="tsd-parameter-signature">
-                  <ul
-                    class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class"
-                  >
-                    <li class="tsd-signature" id="__type.__type-1">
-                      <span class="tsd-signature-symbol">(</span>err<span
-                        class="tsd-signature-symbol"
-                        >: </span
-                      ><span class="tsd-signature-type">Error</span>,
-                      stackTraces<span class="tsd-signature-symbol">: </span
-                      ><span class="tsd-signature-type">CallSite</span
-                      ><span class="tsd-signature-symbol">[]</span
-                      ><span class="tsd-signature-symbol">)</span
-                      ><span class="tsd-signature-symbol">: </span
-                      ><span class="tsd-signature-type">any</span>
-                    </li>
-                    <li class="tsd-description">
-                      <div class="tsd-comment tsd-typography">
-                        <p>Optional override for formatting stack traces</p>
-
-                        <h3>See</h3>
-                        <p>
-                          <a
-                            href="https://v8.dev/docs/stack-trace-api#customizing-stack-traces"
-                            >https://v8.dev/docs/stack-trace-api#customizing-stack-traces</a
-                          >
-                        </p>
-                      </div>
-                      <div class="tsd-parameters">
-                        <h4 class="tsd-parameters-title">Parameters</h4>
-                        <ul class="tsd-parameter-list">
-                          <li>
-                            <h5>
-                              err: <span class="tsd-signature-type">Error</span>
-                            </h5>
-                          </li>
-                          <li>
-                            <h5>
-                              stackTraces:
-                              <span class="tsd-signature-type">CallSite</span
-                              ><span class="tsd-signature-symbol">[]</span>
-                            </h5>
-                          </li>
-                        </ul>
-                      </div>
-                      <h4 class="tsd-returns-title">
-                        Returns <span class="tsd-signature-type">any</span>
-                      </h4>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <aside class="tsd-sources">
-              <p>Inherited from Error.prepareStackTrace</p>
-              <ul>
-                <li>Defined in node_modules/@types/node/globals.d.ts:11</li>
-              </ul>
-            </aside>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-          >
-            <a id="stackTraceLimit" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <code class="tsd-tag ts-flagStatic">Static</code>
-              <span>stack<wbr />Trace<wbr />Limit</span
-              ><a
-                href="#stackTraceLimit"
-                aria-label="Permalink"
-                class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <div class="tsd-signature">
-              stack<wbr />Trace<wbr />Limit<span class="tsd-signature-symbol"
-                >:</span
-              >
-              <span class="tsd-signature-type">number</span>
-            </div>
-            <aside class="tsd-sources">
-              <p>Inherited from Error.stackTraceLimit</p>
-              <ul>
-                <li>Defined in node_modules/@types/node/globals.d.ts:13</li>
-              </ul>
-            </aside>
-          </section>
-        </section>
-        <section class="tsd-panel-group tsd-member-group">
-          <h2>Accessors</h2>
-          <section
-            class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"
-          >
-            <a id="data" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>data</span
-              ><a href="#data" aria-label="Permalink" class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-              <li class="tsd-signature" id="data.data-1">
-                <span class="tsd-signature-symbol">get</span> data<span
-                  class="tsd-signature-symbol"
-                  >(</span
-                ><span class="tsd-signature-symbol">)</span
-                ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">unknown</span>
-              </li>
-              <li class="tsd-description">
-                <h4 class="tsd-returns-title">
-                  Returns <span class="tsd-signature-type">unknown</span>
-                </h4>
-                <aside class="tsd-sources">
-                  <ul>
-                    <li>
-                      Defined in
-                      <a
-                        href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L27"
-                        >index.ts:27</a
-                      >
-                    </li>
-                  </ul>
-                </aside>
-              </li>
-            </ul>
-          </section>
-          <section
-            class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"
-          >
-            <a id="response" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <span>response</span
-              ><a
-                href="#response"
-                aria-label="Permalink"
-                class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-              <li class="tsd-signature" id="response.response-1">
-                <span class="tsd-signature-symbol">get</span> response<span
-                  class="tsd-signature-symbol"
-                  >(</span
-                ><span class="tsd-signature-symbol">)</span
-                ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">Response</span>
-              </li>
-              <li class="tsd-description">
-                <h4 class="tsd-returns-title">
-                  Returns <span class="tsd-signature-type">Response</span>
-                </h4>
-                <aside class="tsd-sources">
-                  <ul>
-                    <li>
-                      Defined in
-                      <a
-                        href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L31"
-                        >index.ts:31</a
-                      >
-                    </li>
-                  </ul>
-                </aside>
-              </li>
-            </ul>
-          </section>
-        </section>
-        <section class="tsd-panel-group tsd-member-group">
-          <h2>Methods</h2>
-          <section
-            class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-          >
-            <a id="captureStackTrace" class="tsd-anchor"></a>
-            <h3 class="tsd-anchor-link">
-              <code class="tsd-tag ts-flagStatic">Static</code>
-              <span>capture<wbr />Stack<wbr />Trace</span
-              ><a
-                href="#captureStackTrace"
-                aria-label="Permalink"
-                class="tsd-anchor-icon"
-                ><svg
-                  class="icon icon-tabler icon-tabler-link"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="#icon-anchor-a"></use>
-                  <use href="#icon-anchor-b"></use>
-                  <use href="#icon-anchor-c"></use></svg
-              ></a>
-            </h3>
-            <ul
-              class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-            >
-              <li
-                class="tsd-signature tsd-anchor-link"
-                id="captureStackTrace.captureStackTrace-1"
-              >
-                capture<wbr />Stack<wbr />Trace<span
-                  class="tsd-signature-symbol"
-                  >(</span
-                >targetObject<span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">object</span>,
-                constructorOpt<span class="tsd-signature-symbol">?: </span
-                ><span class="tsd-signature-type">Function</span
-                ><span class="tsd-signature-symbol">)</span
-                ><span class="tsd-signature-symbol">: </span
-                ><span class="tsd-signature-type">void</span
-                ><a
-                  href="#captureStackTrace.captureStackTrace-1"
-                  aria-label="Permalink"
-                  class="tsd-anchor-icon"
-                  ><svg
-                    class="icon icon-tabler icon-tabler-link"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <use href="#icon-anchor-a"></use>
-                    <use href="#icon-anchor-b"></use>
-                    <use href="#icon-anchor-c"></use></svg
-                ></a>
-              </li>
-              <li class="tsd-description">
-                <div class="tsd-comment tsd-typography">
-                  <p>Create .stack property on a target object</p>
-                </div>
-                <div class="tsd-parameters">
-                  <h4 class="tsd-parameters-title">Parameters</h4>
-                  <ul class="tsd-parameter-list">
-                    <li>
-                      <h5>
-                        targetObject:
-                        <span class="tsd-signature-type">object</span>
-                      </h5>
-                    </li>
-                    <li>
-                      <h5>
-                        <code class="tsd-tag ts-flagOptional">Optional</code>
-                        constructorOpt:
-                        <span class="tsd-signature-type">Function</span>
-                      </h5>
-                    </li>
-                  </ul>
-                </div>
-                <h4 class="tsd-returns-title">
-                  Returns <span class="tsd-signature-type">void</span>
-                </h4>
-                <aside class="tsd-sources">
-                  <p>Inherited from Error.captureStackTrace</p>
-                  <ul>
-                    <li>Defined in node_modules/@types/node/globals.d.ts:4</li>
-                  </ul>
-                </aside>
-              </li>
-            </ul>
           </section>
         </section>
       </div>
@@ -1232,8 +1181,8 @@
         </nav>
         <nav class="tsd-navigation secondary menu-sticky">
           <ul>
-            <li class="current tsd-kind-class">
-              <a href="UnsuccessfulFetch.html" class="tsd-index-link"
+            <li class="current tsd-kind-interface">
+              <a href="IFetchOptions.html" class="tsd-index-link"
                 ><svg
                   class="tsd-kind-icon"
                   width="24"
@@ -1242,42 +1191,25 @@
                 >
                   <rect
                     fill="var(--color-icon-background)"
-                    stroke="var(--color-ts-class)"
+                    stroke="var(--color-ts-interface)"
                     stroke-width="1.5"
                     x="1"
                     y="1"
                     width="22"
                     height="22"
                     rx="6"
-                    id="icon-128-path"
+                    id="icon-256-path"
                   ></rect>
                   <path
-                    d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z"
+                    d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z"
                     fill="var(--color-text)"
-                    id="icon-128-text"
+                    id="icon-256-text"
                   ></path></svg
-                ><span>Unsuccessful<wbr />Fetch</span></a
+                ><span>IFetch<wbr />Options</span></a
               >
               <ul>
-                <li class="tsd-kind-constructor tsd-parent-kind-class">
-                  <a
-                    href="UnsuccessfulFetch.html#constructor"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-512-path"></use>
-                      <use href="#icon-512-text"></use></svg
-                    >constructor</a
-                  >
-                </li>
-                <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-private"
-                >
-                  <a href="UnsuccessfulFetch.html#_data" class="tsd-index-link"
+                <li class="tsd-kind-property tsd-parent-kind-interface">
+                  <a href="IFetchOptions.html#base_url" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1286,15 +1218,13 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >#data</a
+                    >base_<wbr />url?</a
                   >
                 </li>
                 <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-private"
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                 >
-                  <a
-                    href="UnsuccessfulFetch.html#_response"
-                    class="tsd-index-link"
+                  <a href="IFetchOptions.html#body" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1303,29 +1233,14 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >#response</a
+                    >body?</a
                   >
                 </li>
                 <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-                >
-                  <a href="UnsuccessfulFetch.html#cause" class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-1024-path"></use>
-                      <use href="#icon-1024-text"></use></svg
-                    >cause?</a
-                  >
-                </li>
-                <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                 >
                   <a
-                    href="UnsuccessfulFetch.html#message"
+                    href="IFetchOptions.html#credentials"
                     class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
@@ -1335,13 +1250,13 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >message</a
+                    >credentials?</a
                   >
                 </li>
                 <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                 >
-                  <a href="UnsuccessfulFetch.html#name" class="tsd-index-link"
+                  <a href="IFetchOptions.html#dispatcher" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1350,13 +1265,13 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >name</a
+                    >dispatcher?</a
                   >
                 </li>
                 <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                 >
-                  <a href="UnsuccessfulFetch.html#stack" class="tsd-index-link"
+                  <a href="IFetchOptions.html#duplex" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1365,14 +1280,119 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >stack?</a
+                    >duplex?</a
                   >
                 </li>
                 <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#headers" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >headers?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#integrity" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >integrity?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#keepalive" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >keepalive?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#method" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >method?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#mode" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >mode?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#redirect" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >redirect?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#referrer" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >referrer?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                 >
                   <a
-                    href="UnsuccessfulFetch.html#prepareStackTrace"
+                    href="IFetchOptions.html#referrerPolicy"
                     class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
@@ -1382,15 +1402,11 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >prepare<wbr />Stack<wbr />Trace?</a
+                    >referrer<wbr />Policy?</a
                   >
                 </li>
-                <li
-                  class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"
-                >
-                  <a
-                    href="UnsuccessfulFetch.html#stackTraceLimit"
-                    class="tsd-index-link"
+                <li class="tsd-kind-property tsd-parent-kind-interface">
+                  <a href="IFetchOptions.html#reject" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
@@ -1399,52 +1415,50 @@
                     >
                       <use href="#icon-1024-path"></use>
                       <use href="#icon-1024-text"></use></svg
-                    >stack<wbr />Trace<wbr />Limit</a
-                  >
-                </li>
-                <li class="tsd-kind-accessor tsd-parent-kind-class">
-                  <a href="UnsuccessfulFetch.html#data" class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-262144-path"></use>
-                      <use href="#icon-262144-text"></use></svg
-                    >data</a
-                  >
-                </li>
-                <li class="tsd-kind-accessor tsd-parent-kind-class">
-                  <a
-                    href="UnsuccessfulFetch.html#response"
-                    class="tsd-index-link"
-                    ><svg
-                      class="tsd-kind-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <use href="#icon-262144-path"></use>
-                      <use href="#icon-262144-text"></use></svg
-                    >response</a
+                    >reject?</a
                   >
                 </li>
                 <li
-                  class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
                 >
-                  <a
-                    href="UnsuccessfulFetch.html#captureStackTrace"
-                    class="tsd-index-link"
+                  <a href="IFetchOptions.html#signal" class="tsd-index-link"
                     ><svg
                       class="tsd-kind-icon"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
                     >
-                      <use href="#icon-2048-path"></use>
-                      <use href="#icon-2048-text"></use></svg
-                    >capture<wbr />Stack<wbr />Trace</a
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >signal?</a
+                  >
+                </li>
+                <li class="tsd-kind-property tsd-parent-kind-interface">
+                  <a href="IFetchOptions.html#transform" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >transform?</a
+                  >
+                </li>
+                <li
+                  class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"
+                >
+                  <a href="IFetchOptions.html#window" class="tsd-index-link"
+                    ><svg
+                      class="tsd-kind-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <use href="#icon-1024-path"></use>
+                      <use href="#icon-1024-text"></use></svg
+                    >window?</a
                   >
                 </li>
               </ul>
