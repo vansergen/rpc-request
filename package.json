@@ -10,8 +10,8 @@
     "url": "git+https://github.com/vansergen/rpc-request.git"
   },
   "engines": {
-    "node": ">=16.9.1",
-    "npm": ">=7.21.1"
+    "node": ">=18.12.1",
+    "npm": ">=8.19.2"
   },
   "scripts": {
     "build": "tsc",
