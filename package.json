@@ -16,9 +16,8 @@
   "scripts": {
     "build": "tsc",
     "build:remove": "rm -rf dist",
-    "ci:all": "npm ci && npm run prettier && npm run eslint && npm run commitlint:all && npm test && npm publish --dry-run && npm run docs:build && npm run coverage",
-    "commitlint": "commitlint --verbose",
-    "commitlint:all": "npm run commitlint -- --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
+    "ci:all": "npm ci && npm run prettier && npm run eslint && npm run commitlint && npm test && npm publish --dry-run && npm run docs:build && npm run coverage",
+    "commitlint": "commitlint --verbose --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
     "coverage": "c8 npm test",
     "docs:build": "typedoc",
     "eslint": "eslint --ext .ts ./",
