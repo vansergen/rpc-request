@@ -1,33 +1,31 @@
-import fetch, { RequestInit, Response, Headers } from "node-fetch";
+import { fetch, RequestInit, Response, Headers, HeadersInit } from "undici";
 
 export type ITransformType =
-  | "buffer"
   | "arrayBuffer"
   | "blob"
+  | "buffer"
+  | "formData"
   | "json"
-  | "text"
-  | "raw";
+  | "text";
 
-export interface FetchClientOptions {
-  baseUrl?: string | URL;
-  transform?: ITransformType;
-  rejectNotOk?: boolean;
+export interface IFetchOptions extends RequestInit {
+  base_url?: URL | string | null | undefined;
+  transform?: ITransformType | null | undefined;
+  reject?: boolean | undefined;
 }
-
-export interface IClientOptions extends FetchClientOptions {
-  transform: ITransformType;
-  rejectNotOk: boolean;
-}
-
-export const DefaultTransform = "raw";
-
 export class UnsuccessfulFetch extends Error {
   readonly #response: Response;
+  readonly #data: unknown;
 
-  public constructor(message: string, response: Response) {
-    super(message);
+  public constructor(response: Response, data?: unknown) {
+    super(response.statusText);
     this.name = "UnsuccessfulFetch";
     this.#response = response;
+    this.#data = data;
+  }
+
+  public get data(): unknown {
+    return this.#data;
   }
 
   public get response(): Response {
@@ -35,97 +33,118 @@ export class UnsuccessfulFetch extends Error {
   }
 }
 
-export class FetchClient<T = Response> {
-  #fetchOptions: RequestInit;
+export class Fetch {
+  readonly #transform: ITransformType | null;
+  readonly #base_url: URL | null;
+  readonly #reject: boolean;
+  readonly #init: RequestInit;
 
-  readonly #clientOptions: IClientOptions;
-
-  public constructor(
-    fetchOptions: RequestInit = {},
-    {
-      rejectNotOk = true,
-      transform = DefaultTransform,
-      baseUrl,
-    }: FetchClientOptions = {}
-  ) {
-    const headers = new Headers(fetchOptions.headers);
-    this.#fetchOptions = { ...fetchOptions, headers };
-    this.#clientOptions = { rejectNotOk, baseUrl, transform };
+  public constructor({
+    transform = null,
+    base_url = null,
+    reject = true,
+    ...init
+  }: IFetchOptions = {}) {
+    this.#init = init;
+    this.#reject = reject;
+    this.#transform = transform;
+    this.#base_url = base_url === null ? null : new URL(base_url.toString());
   }
 
-  public get fetchOptions(): RequestInit {
-    return this.#fetchOptions;
+  public get reject(): boolean {
+    return this.#reject;
   }
 
-  public set fetchOptions(options: RequestInit) {
-    this.#fetchOptions = FetchClient.#mergeFetchOptions(
-      this.#fetchOptions,
-      options
-    );
+  public get transform(): ITransformType | null {
+    return this.#transform;
   }
 
-  public get(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "GET" });
+  public get base_url(): URL | null {
+    return this.#base_url ? new URL(this.#base_url) : null;
   }
 
-  public head(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "HEAD" });
+  public get init(): RequestInit {
+    return this.#init;
   }
 
-  public post(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "POST" });
+  public get<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "GET" });
   }
 
-  public put(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "PUT" });
+  public head(path = "", init: RequestInit = {}): Promise<Response> {
+    return this.fetch<Response>(path, { ...init, method: "HEAD" });
   }
 
-  public delete(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "DELETE" });
+  public post<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "POST" });
   }
 
-  public options(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "OPTIONS" });
+  public put<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "PUT" });
   }
 
-  public trace(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "TRACE" });
+  public delete<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "DELETE" });
   }
 
-  public patch(path = "", _fetchOptions: RequestInit = {}): Promise<T> {
-    return this.fetch(path, { ..._fetchOptions, method: "PATCH" });
+  public options<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "OPTIONS" });
   }
 
-  public async fetch(path = "", options: RequestInit = {}): Promise<T> {
-    const { baseUrl, rejectNotOk, transform } = this.#clientOptions;
-    const url = new URL(path, baseUrl).toString();
-    const fetchOptions = FetchClient.#mergeFetchOptions(
-      this.#fetchOptions,
-      options
-    );
-    const response = await fetch(url, fetchOptions);
+  public patch<T = unknown>(path = "", init: RequestInit = {}): Promise<T> {
+    return this.fetch<T>(path, { ...init, method: "PATCH" });
+  }
 
-    if (rejectNotOk && !response.ok) {
-      throw new UnsuccessfulFetch(response.statusText, response);
-    } else if (transform === "raw") {
+  public async fetch<T = unknown>(
+    path = "",
+    options: RequestInit = {}
+  ): Promise<T> {
+    const url = this.#base_url ? new URL(path, this.#base_url) : new URL(path);
+    const headers = Fetch.#mergeHeaders(this.#init.headers, options.headers);
+    const init = { ...this.#init, ...options, headers };
+    const response = await fetch(url, init);
+
+    if (this.#transform === null) {
       return response as unknown as T;
     }
 
-    const data = (await response[transform]()) as T;
-    return data;
+    let body: T;
+
+    if (options.method === "HEAD") {
+      body = (await response.text()) as unknown as T;
+    } else if (
+      this.#transform === "buffer" ||
+      this.#transform === "arrayBuffer"
+    ) {
+      const arrayBuffer = await response.arrayBuffer();
+      const output =
+        this.#transform === "arrayBuffer"
+          ? arrayBuffer
+          : Buffer.from(arrayBuffer);
+      body = output as unknown as T;
+    } else {
+      body = (await response[this.#transform]()) as T;
+    }
+
+    if (this.#reject && !response.ok) {
+      throw new UnsuccessfulFetch(response, body);
+    } else if (options.method === "HEAD") {
+      return response as unknown as T;
+    }
+
+    return body;
   }
 
-  static #mergeFetchOptions(
-    { headers: headers1, ...rest1 }: RequestInit,
-    { headers: headers2, ...rest2 }: RequestInit
-  ): RequestInit {
-    const headers = new Headers(headers1);
-    const _headers = new Headers(headers2);
-    for (const [key, value] of _headers) {
-      headers.set(key, value);
+  static #mergeHeaders(...headersInit: (HeadersInit | undefined)[]): Headers {
+    const out = new Headers();
+    for (const init of headersInit) {
+      const headers = new Headers(init);
+      for (const [key, value] of headers) {
+        out.set(key, value);
+      }
     }
-    return { ...rest1, ...rest2, headers };
+    return out;
   }
 }
 
-export default FetchClient;
+export default Fetch;

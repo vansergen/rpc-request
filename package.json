@@ -1,65 +1,63 @@
 {
   "name": "rpc-request",
   "version": "6.0.2",
-  "description": "Simple wrapper of the node-fetch library in a class",
-  "main": "./build/index.js",
+  "description": "A simple wrapper of the Fetch API in a class (based on undici)",
+  "main": "dist/index.js",
   "type": "module",
-  "types": "./build/index.d.ts",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vansergen/rpc-request.git"
   },
   "engines": {
-    "node": ">=16.9.1",
-    "npm": ">=7.21.1"
+    "node": ">=18.12.1",
+    "npm": ">=8.19.2"
   },
   "scripts": {
-    "build": "npm run postpublish && tsc",
-    "ci:all": "npm ci && npm run commitlint:all && npm run prettier && npm run lint && npm run test:ci && npm run publish:test && npm run coverage:ci",
-    "commitlint": "commitlint --verbose",
-    "commitlint:all": "npm run commitlint -- --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
-    "coverage": "c8 npm test && c8 report --reporter=lcov",
-    "coverage:ci": "npm run prepublishOnly && npm run coverage",
-    "docs:build": "rm -rf ./docs && typedoc && npm run prettier:write -- --ignore-path .prettierignore_docs",
-    "install:clean": "rm -fr node_modules && rm -f package-lock.json && npm install",
-    "lint": "eslint --ext .ts ./",
-    "lint:fix": "npm run lint -- --fix",
-    "postpublish": "rm -rf ./build",
+    "build": "tsc",
+    "build:remove": "rm -rf dist",
+    "ci:all": "npm ci && npm run prettier && npm run eslint && npm run commitlint && npm test && npm publish --dry-run && npm run docs:build && npm run coverage",
+    "commitlint": "commitlint --verbose --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
+    "coverage": "c8 npm test",
+    "docs:build": "typedoc",
+    "eslint": "eslint --ext .ts ./",
+    "eslint:fix": "npm run eslint -- --fix",
+    "install:clean": "npm install",
+    "postbuild": "prettier -c -w dist",
+    "postcoverage": "c8 report --reporter=lcov",
+    "postdocs:build": "prettier -c -w docs",
+    "postpublish": "npm run build:remove",
+    "prebuild": "npm run build:remove",
+    "preinstall:clean": "rm -rf node_modules package-lock.json",
     "prepare": "husky install",
-    "prepublishOnly": "npm run build && npm run prettier:write",
+    "prepublishOnly": "npm run build",
     "prettier": "prettier -c .",
-    "prettier:write": "npm run prettier -- --write",
-    "publish:test": "npm publish --dry-run",
-    "release": "semantic-release",
-    "test": "mocha 'build/test/**/*.spec.js' --full-trace --bail",
-    "test:ci": "npm run prepublishOnly && npm test && npm run postpublish",
-    "ts-node": "node --loader ts-node/esm"
+    "prettier:write": "prettier -c -w .",
+    "preversion": "npm run docs:build",
+    "test": "mocha"
   },
   "dependencies": {
-    "node-fetch": "^3.2.6"
+    "undici": "^5.14.0"
   },
   "devDependencies": {
-    "@b2broker/tsconfig": "^1.0.3",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@types/mocha": "^9.1.1",
-    "c8": "^7.11.3",
-    "commitlint-config-b2broker": "^1.0.7",
-    "eslint-config-b2broker-ts": "^2.0.1",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "mocha": "^10.0.0",
-    "prettier": "^2.7.1",
-    "semantic-release": "^19.0.3",
-    "ts-node": "^10.8.1",
-    "typedoc": "^0.22.17"
+    "@binden/commitlint-config": "^1.0.1",
+    "@binden/semantic-release-config": "^1.1.1",
+    "@binden/tsconfig": "^1.0.1",
+    "@types/mocha": "^10.0.1",
+    "c8": "^7.12.0",
+    "eslint-config-binden-ts": "^1.0.2",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.1",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.23"
   },
   "keywords": [
     "rpc",
     "fetch"
   ],
-  "author": "Sergey Bakulin",
+  "author": "Sergey Bakulin <sergey.bakulin.github@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vansergen/rpc-request/issues"
@@ -67,9 +65,10 @@
   "homepage": "https://github.com/vansergen/rpc-request#readme",
   "funding": {
     "type": "Coinbase Commerce",
-    "url": "https://commerce.coinbase.com/checkout/32948818-f4bb-4087-ae5e-1d29ecb86e64"
+    "url": "https://commerce.coinbase.com/checkout/3ad2d84d-8417-4f33-bfbb-64d0239d4309"
   },
   "directories": {
+    "doc": "docs",
     "test": "test"
   }
 }
