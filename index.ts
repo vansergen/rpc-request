@@ -4,6 +4,7 @@ export type ITransformType =
   | "arrayBuffer"
   | "blob"
   | "buffer"
+  | "formData"
   | "json"
   | "text";
 
