@@ -91,6 +91,37 @@ describe("Fetch", () => {
     }
   });
 
+  it("Rewrites the default options", async () => {
+    const client = new Fetch({
+      base_url,
+      transform: "text",
+      reject: true,
+    });
+
+    const url = "https://example2.com";
+    const path = "v2/ok";
+    const status = 404;
+    const expected = { message: "not_ok" };
+
+    mockAgent
+      .get(new URL(path, url).origin)
+      .intercept({ path: new URL(path, url).toString(), method: "GET" })
+      .reply(status, expected);
+
+    deepStrictEqual(client.base_url, base_url);
+    deepStrictEqual(client.transform, "text");
+    deepStrictEqual(client.reject, true);
+    const transform = "json";
+    const reject = !client.reject;
+
+    const response = await client.fetch<Response>(path, {
+      base_url: url,
+      transform,
+      reject,
+    });
+    deepStrictEqual(response, expected);
+  });
+
   it("Transforms the response to `ArrayBuffer`", async () => {
     const transform = "arrayBuffer";
     const headers = { "x-token-secret": "SuperSecretToken" };
