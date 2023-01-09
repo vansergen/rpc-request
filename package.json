@@ -1,6 +1,6 @@
 {
   "name": "rpc-request",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "A simple wrapper of the Fetch API in a class (based on undici)",
   "main": "dist/index.js",
   "type": "module",

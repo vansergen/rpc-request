@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.1.0](https://github.com/vansergen/rpc-request/compare/v7.0.0...v7.1.0) (2023-01-09)
+
+### Features
+
+- allow to rewrite the default options ([c1e44b3](https://github.com/vansergen/rpc-request/commit/c1e44b338d601ceb7e4e121d30401ccd74c804db))
+
 ## [7.0.0](https://github.com/vansergen/rpc-request/compare/v6.0.2...v7.0.0) (2022-12-26)
 
 ### ⚠ BREAKING CHANGES
