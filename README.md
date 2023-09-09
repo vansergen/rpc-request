@@ -45,7 +45,7 @@ class CustomFetch extends Fetch {
   }
   public post<T = unknown>(
     path: string,
-    body: Record<string, unknown> = {}
+    body: Record<string, unknown> = {},
   ): Promise<T> {
     return super.post<T>(path, {
       body: JSON.stringify(body),

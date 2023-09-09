@@ -103,7 +103,7 @@ export class Fetch {
       transform = this.#transform,
       reject = this.#reject,
       ...init
-    }: IFetchOptions = {}
+    }: IFetchOptions = {},
   ): Promise<T> {
     const url =
       typeof base_url === "string" || base_url instanceof URL
