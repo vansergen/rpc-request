@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.1.5](https://github.com/vansergen/rpc-request/compare/v7.1.4...v7.1.5) (2023-09-13)
+
+### Dependencies
+
+- bump undici from 5.23.0 to 5.24.0 ([3ba8e93](https://github.com/vansergen/rpc-request/commit/3ba8e93c46273e6991a2aebdcca1d4f8d1f8a6d9))
+
 ## [7.1.4](https://github.com/vansergen/rpc-request/compare/v7.1.3...v7.1.4) (2023-08-12)
 
 ### Dependencies
