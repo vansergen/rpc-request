@@ -37,7 +37,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "undici": "^6.2.1"
+    "undici": "^6.4.0"
   },
   "devDependencies": {
     "@binden/commitlint-config": "^1.0.2",
