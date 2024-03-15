@@ -34,24 +34,24 @@
     "prettier": "prettier -c .",
     "prettier:write": "prettier -c -w .",
     "preversion": "npm run docs:build",
-    "test": "mocha"
+    "test": "TS_NODE_TRANSPILE_ONLY=true mocha"
   },
   "dependencies": {
     "undici": "^6.2.1"
   },
   "devDependencies": {
-    "@binden/commitlint-config": "^1.0.2",
-    "@binden/semantic-release-config": "^2.0.0",
-    "@binden/tsconfig": "^1.0.2",
+    "@binden/commitlint-config": "^2.1.0",
+    "@binden/semantic-release-config": "^3.0.0",
+    "@binden/tsconfig": "^2.0.0",
     "@types/mocha": "^10.0.6",
     "c8": "^9.1.0",
-    "eslint-config-binden-ts": "^2.0.0",
+    "eslint-config-binden-ts": "^3.0.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.0",
-    "mocha": "^10.2.0",
-    "prettier": "^3.2.4",
+    "lint-staged": "^15.2.2",
+    "mocha": "^10.3.0",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.25.7"
+    "typedoc": "^0.25.12"
   },
   "keywords": [
     "rpc",

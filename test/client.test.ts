@@ -195,7 +195,7 @@ describe("Fetch", () => {
     const file_content = ["str1\n", "str2\n"];
     const file = new Blob(file_content, {
       type: "text/plain",
-      encoding: "utf8",
+      endings: "native",
     });
     form.append("file", file);
     const temp = new Response(form);
