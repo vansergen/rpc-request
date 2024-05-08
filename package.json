@@ -37,7 +37,7 @@
     "test": "TS_NODE_TRANSPILE_ONLY=true mocha"
   },
   "dependencies": {
-    "undici": "^6.9.0"
+    "undici": "^6.16.0"
   },
   "devDependencies": {
     "@binden/commitlint-config": "^2.1.0",
