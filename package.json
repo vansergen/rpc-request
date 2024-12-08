@@ -10,8 +10,8 @@
     "url": "git+https://github.com/vansergen/rpc-request.git"
   },
   "engines": {
-    "node": ">=18.12.1",
-    "npm": ">=8.19.2"
+    "node": ">=22.12.0",
+    "npm": ">=10.9.0"
   },
   "scripts": {
     "build": "tsc",
@@ -20,7 +20,7 @@
     "commitlint": "commitlint --verbose --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
     "coverage": "c8 npm test",
     "docs:build": "typedoc",
-    "eslint": "eslint --ext .ts ./",
+    "eslint": "eslint --no-warn-ignored **/*.ts",
     "eslint:fix": "npm run eslint -- --fix",
     "install:clean": "npm install",
     "postbuild": "prettier -c -w dist",
@@ -42,16 +42,16 @@
   "devDependencies": {
     "@binden/commitlint-config": "^2.1.0",
     "@binden/semantic-release-config": "^3.0.0",
-    "@binden/tsconfig": "^2.0.0",
-    "@types/mocha": "^10.0.9",
+    "@binden/tsconfig": "^3.0.0",
+    "@types/mocha": "^10.0.10",
     "c8": "^10.1.2",
-    "eslint-config-binden-ts": "^3.0.0",
+    "eslint-config-binden-ts": "^5.0.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.7",
-    "mocha": "^10.7.3",
+    "lint-staged": "^15.2.10",
+    "mocha": "^11.0.1",
     "prettier": "^3.4.2",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.26.9"
+    "typedoc": "^0.27.3"
   },
   "keywords": [
     "rpc",

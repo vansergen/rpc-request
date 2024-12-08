@@ -1,4 +1,10 @@
-import { fetch, RequestInit, Response, Headers, HeadersInit } from "undici";
+import {
+  Headers,
+  type HeadersInit,
+  type RequestInit,
+  Response,
+  fetch,
+} from "undici";
 
 export type ITransformType =
   | "arrayBuffer"
