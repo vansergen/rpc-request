@@ -20,7 +20,7 @@
     "commitlint": "commitlint --verbose --from=3a4e49594ece7f93fd2dab0b8f85a74f83ae1f1c",
     "coverage": "c8 npm test",
     "docs:build": "typedoc",
-    "eslint": "eslint --ext .ts ./",
+    "eslint": "eslint **/*.ts",
     "eslint:fix": "npm run eslint -- --fix",
     "install:clean": "npm install",
     "postbuild": "prettier -c -w dist",

@@ -1,7 +1,8 @@
-import { ok, fail, deepStrictEqual } from "node:assert";
+/* eslint sort-imports: "warn" */
+import { deepStrictEqual, fail, ok } from "node:assert";
 import { Blob } from "node:buffer";
 import { STATUS_CODES } from "node:http";
-import { Response, FormData, MockAgent, setGlobalDispatcher } from "undici";
+import { FormData, MockAgent, Response, setGlobalDispatcher } from "undici";
 import Fetch, { UnsuccessfulFetch } from "../index.js";
 
 describe("Fetch", () => {
