@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default" lang="en">
+<html class="default" lang="en" data-base="..">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
@@ -26,7 +26,7 @@
     </script>
     <header class="tsd-page-toolbar">
       <div class="tsd-toolbar-contents container">
-        <div class="table-cell" id="tsd-search" data-base="..">
+        <div class="table-cell" id="tsd-search">
           <div class="field">
             <label
               for="tsd-search-field"
@@ -61,121 +61,144 @@
             <li><a href="../modules.html">rpc-request</a></li>
             <li><a href="IFetchOptions.html">IFetchOptions</a></li>
           </ul>
-          <h1>InterfaceIFetchOptions</h1>
+          <h1>Interface IFetchOptions</h1>
         </div>
         <div class="tsd-signature">
-          <span class="tsd-signature-keyword">interface </span
-          ><span class="tsd-kind-interface">IFetchOptions</span>
-          <span class="tsd-signature-symbol">{ </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#base_url"
+          <span class="tsd-signature-keyword">interface</span>
+          <span class="tsd-kind-interface">IFetchOptions</span>
+          <span class="tsd-signature-symbol">{</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#base_url"
             >base_url</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">null</span
-          ><span class="tsd-signature-symbol"> | </span
-          ><span class="tsd-signature-type">string</span
-          ><span class="tsd-signature-symbol"> | </span
-          ><span class="tsd-signature-type">URL</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#body">body</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">BodyInit</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#cache">cache</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">RequestCache</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#credentials"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">null</span>
+          <span class="tsd-signature-symbol">|</span>
+          <span class="tsd-signature-type">string</span>
+          <span class="tsd-signature-symbol">|</span>
+          <span class="tsd-signature-type">URL</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#body"
+            >body</a
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">BodyInit</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#cache"
+            >cache</a
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">RequestCache</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#credentials"
             >credentials</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">RequestCredentials</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#dispatcher"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">RequestCredentials</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#dispatcher"
             >dispatcher</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">Dispatcher</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#duplex"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">Dispatcher</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#duplex"
             >duplex</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">&quot;half&quot;</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#headers"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">&quot;half&quot;</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#headers"
             >headers</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">HeadersInit</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#integrity"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">HeadersInit</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#integrity"
             >integrity</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">string</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#keepalive"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#keepalive"
             >keepalive</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">boolean</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#method"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">boolean</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#method"
             >method</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">string</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#mode">mode</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">RequestMode</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#redirect"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#mode"
+            >mode</a
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">RequestMode</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#redirect"
             >redirect</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">RequestRedirect</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#referrer"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">RequestRedirect</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#referrer"
             >referrer</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">string</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#referrerPolicy"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#referrerpolicy"
             >referrerPolicy</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">ReferrerPolicy</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#reject"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">ReferrerPolicy</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#reject"
             >reject</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">boolean</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#signal"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">boolean</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#signal"
             >signal</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">null</span
-          ><span class="tsd-signature-symbol"> | </span
-          ><span class="tsd-signature-type">AbortSignal</span
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#transform"
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">null</span>
+          <span class="tsd-signature-symbol">|</span>
+          <span class="tsd-signature-type">AbortSignal</span
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#transform"
             >transform</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">null</span
-          ><span class="tsd-signature-symbol"> | </span
-          ><a
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">null</span>
+          <span class="tsd-signature-symbol">|</span>
+          <a
             href="../types/ITransformType.html"
             class="tsd-signature-type tsd-kind-type-alias"
             >ITransformType</a
-          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
-          ><a class="tsd-kind-property" href="IFetchOptions.html#window"
+          ><span class="tsd-signature-symbol">;</span><br />    <a
+            class="tsd-kind-property"
+            href="IFetchOptions.html#window"
             >window</a
-          ><span class="tsd-signature-symbol">?: </span
-          ><span class="tsd-signature-type">null</span
-          ><span class="tsd-signature-symbol">; </span><br /><span
+          ><span class="tsd-signature-symbol">?:</span>
+          <span class="tsd-signature-type">null</span
+          ><span class="tsd-signature-symbol">;</span><br /><span
             class="tsd-signature-symbol"
             >}</span
           >
         </div>
-        <section class="tsd-panel tsd-hierarchy">
+        <section class="tsd-panel tsd-hierarchy" data-refl="2">
           <h4>Hierarchy</h4>
           <ul class="tsd-hierarchy">
-            <li>
+            <li class="tsd-hierarchy-item">
               <span class="tsd-signature-type">RequestInit</span>
               <ul class="tsd-hierarchy">
-                <li><span class="target">IFetchOptions</span></li>
+                <li class="tsd-hierarchy-item">
+                  <span class="tsd-hierarchy-target">IFetchOptions</span>
+                </li>
               </ul>
             </li>
           </ul>
@@ -185,8 +208,8 @@
             <li>
               Defined in
               <a
-                href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L11"
-                >index.ts:11</a
+                href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L17"
+                >index.ts:17</a
               >
             </li>
           </ul>
@@ -301,7 +324,7 @@
                       ><span>referrer?</span></a
                     >
                     <a
-                      href="IFetchOptions.html#referrerPolicy"
+                      href="IFetchOptions.html#referrerpolicy"
                       class="tsd-index-link tsd-is-inherited tsd-is-external"
                       ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                         <use href="../assets/icons.svg#icon-1024"></use></svg
@@ -362,21 +385,21 @@
                 ></a>
               </h3>
               <div class="tsd-signature">
-                <span class="tsd-kind-property">base_<wbr />url</span
+                <span class="tsd-kind-property">base_url</span
                 ><span class="tsd-signature-symbol">?:</span>
-                <span class="tsd-signature-type">null</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">string</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">URL</span>
+                <span class="tsd-signature-type">null</span>
+                <span class="tsd-signature-symbol">|</span>
+                <span class="tsd-signature-type">string</span>
+                <span class="tsd-signature-symbol">|</span>
+                <span class="tsd-signature-type">URL</span>
               </div>
               <aside class="tsd-sources">
                 <ul>
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L12"
-                      >index.ts:12</a
+                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L18"
+                      >index.ts:18</a
                     >
                   </li>
                 </ul>
@@ -495,7 +518,9 @@
                 ></a>
               </h3>
               <div class="tsd-signature">
-                <span class="tsd-kind-property">duplex</span>
+                <span class="tsd-kind-property">duplex</span
+                ><span class="tsd-signature-symbol">?:</span>
+                <span class="tsd-signature-type">&quot;half&quot;</span>
               </div>
               <aside class="tsd-sources">
                 <p>Inherited from RequestInit.duplex</p>
@@ -686,12 +711,12 @@
             <section
               class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"
             >
-              <a id="referrerPolicy" class="tsd-anchor"></a>
+              <a id="referrerpolicy" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
                 <code class="tsd-tag">Optional</code
                 ><span>referrer<wbr />Policy</span
                 ><a
-                  href="#referrerPolicy"
+                  href="#referrerpolicy"
                   aria-label="Permalink"
                   class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24">
@@ -699,7 +724,7 @@
                 ></a>
               </h3>
               <div class="tsd-signature">
-                <span class="tsd-kind-property">referrer<wbr />Policy</span
+                <span class="tsd-kind-property">referrerPolicy</span
                 ><span class="tsd-signature-symbol">?:</span>
                 <span class="tsd-signature-type">ReferrerPolicy</span>
               </div>
@@ -732,8 +757,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L14"
-                      >index.ts:14</a
+                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L20"
+                      >index.ts:20</a
                     >
                   </li>
                 </ul>
@@ -756,9 +781,9 @@
               <div class="tsd-signature">
                 <span class="tsd-kind-property">signal</span
                 ><span class="tsd-signature-symbol">?:</span>
-                <span class="tsd-signature-type">null</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><span class="tsd-signature-type">AbortSignal</span>
+                <span class="tsd-signature-type">null</span>
+                <span class="tsd-signature-symbol">|</span>
+                <span class="tsd-signature-type">AbortSignal</span>
               </div>
               <aside class="tsd-sources">
                 <p>Inherited from RequestInit.signal</p>
@@ -782,9 +807,9 @@
               <div class="tsd-signature">
                 <span class="tsd-kind-property">transform</span
                 ><span class="tsd-signature-symbol">?:</span>
-                <span class="tsd-signature-type">null</span
-                ><span class="tsd-signature-symbol"> | </span
-                ><a
+                <span class="tsd-signature-type">null</span>
+                <span class="tsd-signature-symbol">|</span>
+                <a
                   href="../types/ITransformType.html"
                   class="tsd-signature-type tsd-kind-type-alias"
                   >ITransformType</a
@@ -795,8 +820,8 @@
                   <li>
                     Defined in
                     <a
-                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L13"
-                      >index.ts:13</a
+                      href="https://github.com/vansergen/rpc-request/blob/main/index.ts#L19"
+                      >index.ts:19</a
                     >
                   </li>
                 </ul>
@@ -817,7 +842,9 @@
                 ></a>
               </h3>
               <div class="tsd-signature">
-                <span class="tsd-kind-property">window</span>
+                <span class="tsd-kind-property">window</span
+                ><span class="tsd-signature-symbol">?:</span>
+                <span class="tsd-signature-type">null</span>
               </div>
               <aside class="tsd-sources">
                 <p>Inherited from RequestInit.window</p>
@@ -966,7 +993,7 @@
               <details open class="tsd-accordion tsd-page-navigation-section">
                 <summary
                   class="tsd-accordion-summary"
-                  data-key="tsd-otp-Properties"
+                  data-key="section-Properties"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <use href="../assets/icons.svg#icon-chevronDown"></use></svg
@@ -1030,7 +1057,7 @@
                       <use href="../assets/icons.svg#icon-1024"></use></svg
                     ><span>referrer</span></a
                   ><a
-                    href="#referrerPolicy"
+                    href="#referrerpolicy"
                     class="tsd-is-inherited tsd-is-external"
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                       <use href="../assets/icons.svg#icon-1024"></use></svg
@@ -1059,16 +1086,8 @@
         </div>
         <div class="site-menu">
           <nav class="tsd-navigation">
-            <a href="../modules.html"
-              ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                <use href="../assets/icons.svg#icon-1"></use></svg
-              ><span>rpc-request</span></a
-            >
-            <ul
-              class="tsd-small-nested-navigation"
-              id="tsd-nav-container"
-              data-base=".."
-            >
+            <a href="../modules.html">rpc-request</a>
+            <ul class="tsd-small-nested-navigation" id="tsd-nav-container">
               <li>Loading...</li>
             </ul>
           </nav>

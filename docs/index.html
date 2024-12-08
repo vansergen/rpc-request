@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default" lang="en">
+<html class="default" lang="en" data-base=".">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
@@ -26,7 +26,7 @@
     </script>
     <header class="tsd-page-toolbar">
       <div class="tsd-toolbar-contents container">
-        <div class="table-cell" id="tsd-search" data-base=".">
+        <div class="table-cell" id="tsd-search">
           <div class="field">
             <label
               for="tsd-search-field"
@@ -59,7 +59,7 @@
         <div class="tsd-page-title"><h1>rpc-request</h1></div>
         <div class="tsd-panel tsd-typography">
           <a
-            id="md:rpc-request-ci-status-npm-coverage-status-known-vulnerabilities-code-style-prettier-contributor-covenant-semantic-release-conventional-commits-npm-license-node-version-npm-downloads-github-top-language"
+            id="rpc-request-ci-status-npm-coverage-status-known-vulnerabilities-code-style-prettier-contributor-covenant-semantic-release-conventional-commits-npm-license-node-version-npm-downloads-github-top-language"
             class="tsd-anchor"
           ></a>
           <h1 class="tsd-anchor-link">
@@ -131,7 +131,7 @@
               src="https://img.shields.io/github/languages/top/vansergen/rpc-request"
               alt="GitHub top language"
             /><a
-              href="#md:rpc-request-ci-status-npm-coverage-status-known-vulnerabilities-code-style-prettier-contributor-covenant-semantic-release-conventional-commits-npm-license-node-version-npm-downloads-github-top-language"
+              href="#rpc-request-ci-status-npm-coverage-status-known-vulnerabilities-code-style-prettier-contributor-covenant-semantic-release-conventional-commits-npm-license-node-version-npm-downloads-github-top-language"
               aria-label="Permalink"
               class="tsd-anchor-icon"
               ><svg viewBox="0 0 24 24">
@@ -148,10 +148,10 @@
               >undici</a
             >) in a class.
           </p>
-          <a id="md:installation" class="tsd-anchor"></a>
+          <a id="installation" class="tsd-anchor"></a>
           <h2 class="tsd-anchor-link">
             Installation<a
-              href="#md:installation"
+              href="#installation"
               aria-label="Permalink"
               class="tsd-anchor-icon"
               ><svg viewBox="0 0 24 24">
@@ -161,12 +161,9 @@
           <pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">rpc-request</span>
 </code><button type="button">Copy</button></pre>
 
-          <a id="md:usage" class="tsd-anchor"></a>
+          <a id="usage" class="tsd-anchor"></a>
           <h2 class="tsd-anchor-link">
-            Usage<a
-              href="#md:usage"
-              aria-label="Permalink"
-              class="tsd-anchor-icon"
+            Usage<a href="#usage" aria-label="Permalink" class="tsd-anchor-icon"
               ><svg viewBox="0 0 24 24">
                 <use href="assets/icons.svg#icon-anchor"></use></svg
             ></a>
@@ -189,10 +186,10 @@
           <pre><code class="typescript"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">Fetch</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&quot;rpc-request&quot;</span><span class="hl-1">;</span><br/><span class="hl-6">interface</span><span class="hl-1"> </span><span class="hl-8">Ip</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-4">client_ip</span><span class="hl-1">: </span><span class="hl-8">string</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-4">timezone</span><span class="hl-1">: </span><span class="hl-8">string</span><span class="hl-1">;</span><br/><span class="hl-1">}</span><br/><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">base_url</span><span class="hl-1"> = </span><span class="hl-6">new</span><span class="hl-1"> </span><span class="hl-0">URL</span><span class="hl-1">(</span><span class="hl-2">&quot;http://worldtimeapi.org/api/&quot;</span><span class="hl-1">);</span><br/><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">client</span><span class="hl-1"> = </span><span class="hl-6">new</span><span class="hl-1"> </span><span class="hl-0">Fetch</span><span class="hl-1">({ </span><span class="hl-4">base_url</span><span class="hl-1">, </span><span class="hl-4">transform:</span><span class="hl-1"> </span><span class="hl-2">&quot;json&quot;</span><span class="hl-1"> });</span><br/><span class="hl-6">const</span><span class="hl-1"> { </span><span class="hl-7">client_ip</span><span class="hl-1">, </span><span class="hl-7">timezone</span><span class="hl-1"> } = </span><span class="hl-3">await</span><span class="hl-1"> </span><span class="hl-4">client</span><span class="hl-1">.</span><span class="hl-0">fetch</span><span class="hl-1">&lt;</span><span class="hl-8">Ip</span><span class="hl-1">&gt;(</span><span class="hl-2">&quot;ip&quot;</span><span class="hl-1">);</span>
 </code><button type="button">Copy</button></pre>
 
-          <a id="md:http-methods" class="tsd-anchor"></a>
+          <a id="http-methods" class="tsd-anchor"></a>
           <h3 class="tsd-anchor-link">
             HTTP methods.<a
-              href="#md:http-methods"
+              href="#http-methods"
               aria-label="Permalink"
               class="tsd-anchor-icon"
               ><svg viewBox="0 0 24 24">
@@ -377,7 +374,7 @@
             </summary>
             <div class="tsd-accordion-details">
               <a
-                href="#md:rpc-request-ci-status-npm-coverage-status-known-vulnerabilities-code-style-prettier-contributor-covenant-semantic-release-conventional-commits-npm-license-node-version-npm-downloads-github-top-language"
+                href="#rpc-request-ci-status-npm-coverage-status-known-vulnerabilities-code-style-prettier-contributor-covenant-semantic-release-conventional-commits-npm-license-node-version-npm-downloads-github-top-language"
                 ><span
                   >rpc-<wbr />request CI <wbr />Status npm <wbr />Coverage
                   <wbr />Status <wbr />Known <wbr />Vulnerabilities code style:
@@ -388,15 +385,15 @@
               >
               <ul>
                 <li>
-                  <a href="#md:installation"><span>Installation</span></a>
+                  <a href="#installation"><span>Installation</span></a>
                 </li>
                 <li>
-                  <a href="#md:usage"><span>Usage</span></a>
+                  <a href="#usage"><span>Usage</span></a>
                 </li>
                 <li>
                   <ul>
                     <li>
-                      <a href="#md:http-methods"><span>HTTP methods.</span></a>
+                      <a href="#http-methods"><span>HTTP methods.</span></a>
                     </li>
                   </ul>
                 </li>
@@ -406,16 +403,8 @@
         </div>
         <div class="site-menu">
           <nav class="tsd-navigation">
-            <a href="modules.html" class="current"
-              ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                <use href="assets/icons.svg#icon-1"></use></svg
-              ><span>rpc-request</span></a
-            >
-            <ul
-              class="tsd-small-nested-navigation"
-              id="tsd-nav-container"
-              data-base="."
-            >
+            <a href="modules.html" class="current">rpc-request</a>
+            <ul class="tsd-small-nested-navigation" id="tsd-nav-container">
               <li>Loading...</li>
             </ul>
           </nav>

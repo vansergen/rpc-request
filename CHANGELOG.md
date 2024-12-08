@@ -1,5 +1,15 @@
 # Changelog
 
+## [8.0.0](https://github.com/vansergen/rpc-request/compare/v7.1.12...v8.0.0) (2024-12-08)
+
+### ⚠ BREAKING CHANGES
+
+- drop `Node.js<22` support
+
+### Performance Improvements
+
+- drop `Node.js<22` support ([bbb4394](https://github.com/vansergen/rpc-request/commit/bbb439487a0e85c09608e95e1af931a7cb927d3d))
+
 ## [7.1.12](https://github.com/vansergen/rpc-request/compare/v7.1.11...v7.1.12) (2024-12-08)
 
 ### Dependencies
