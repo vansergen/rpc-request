@@ -1,7 +1,7 @@
 {
   "name": "rpc-request",
   "version": "8.0.1",
-  "description": "A simple wrapper of the Fetch API in a class (based on undici)",
+  "description": "A simple wrapper of the Fetch API in a class",
   "main": "dist/index.js",
   "type": "module",
   "types": "dist/index.d.ts",
@@ -36,9 +36,6 @@
     "preversion": "npm run docs:build",
     "test": "TS_NODE_TRANSPILE_ONLY=true mocha"
   },
-  "dependencies": {
-    "undici": "^7.8.0"
-  },
   "devDependencies": {
     "@binden/commitlint-config": "^2.1.0",
     "@binden/semantic-release-config": "^3.0.0",
@@ -51,7 +48,8 @@
     "mocha": "^11.2.2",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.28.4"
+    "typedoc": "^0.28.4",
+    "undici": "^7.8.0"
   },
   "keywords": [
     "rpc",
