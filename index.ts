@@ -1,11 +1,3 @@
-import {
-  Headers,
-  type HeadersInit,
-  type RequestInit,
-  Response,
-  fetch,
-} from "undici";
-
 export type ITransformType =
   | "arrayBuffer"
   | "blob"

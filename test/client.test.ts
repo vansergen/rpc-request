@@ -2,7 +2,7 @@
 import { deepStrictEqual, fail, ok } from "node:assert";
 import { Blob } from "node:buffer";
 import { STATUS_CODES } from "node:http";
-import { FormData, MockAgent, Response, setGlobalDispatcher } from "undici";
+import { MockAgent, setGlobalDispatcher } from "undici";
 import Fetch, { UnsuccessfulFetch } from "../index.js";
 
 describe("Fetch", () => {
@@ -58,7 +58,7 @@ describe("Fetch", () => {
     ok(response instanceof Response);
     deepStrictEqual(response.bodyUsed, false);
     deepStrictEqual(response.status, 404);
-    const actual = await response.json();
+    const actual = (await response.json()) as Promise<unknown>;
     deepStrictEqual(response.bodyUsed, true);
     deepStrictEqual(actual, expected);
   });
