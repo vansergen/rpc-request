@@ -1,5 +1,11 @@
 # Changelog
 
+## [8.0.1](https://github.com/vansergen/rpc-request/compare/v8.0.0...v8.0.1) (2025-05-04)
+
+### Dependencies
+
+- bump undici from 7.1.0 to 7.8.0 ([fb5cd10](https://github.com/vansergen/rpc-request/commit/fb5cd1060f1764db2a480de1d79b1dfcee57ee8b))
+
 ## [8.0.0](https://github.com/vansergen/rpc-request/compare/v7.1.12...v8.0.0) (2024-12-08)
 
 ### ⚠ BREAKING CHANGES
