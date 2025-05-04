@@ -1,5 +1,15 @@
 # Changelog
 
+## [9.0.0](https://github.com/vansergen/rpc-request/compare/v8.0.1...v9.0.0) (2025-05-04)
+
+### ⚠ BREAKING CHANGES
+
+- use the native fetch function
+
+### Features
+
+- use the native fetch function ([1a92d71](https://github.com/vansergen/rpc-request/commit/1a92d712f8f24fca33fc811c5b8fa151675d6a82))
+
 ## [8.0.1](https://github.com/vansergen/rpc-request/compare/v8.0.0...v8.0.1) (2025-05-04)
 
 ### Dependencies
