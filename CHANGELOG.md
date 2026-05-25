@@ -1,5 +1,15 @@
 # Changelog
 
+## [10.0.0](https://github.com/vansergen/rpc-request/compare/v9.0.0...v10.0.0) (2026-05-25)
+
+### ⚠ BREAKING CHANGES
+
+- drop Node.js <24 support
+
+### Performance Improvements
+
+- drop Node.js <24 support ([f7583f5](https://github.com/vansergen/rpc-request/commit/f7583f55b339639d21bc7a362efedf973da9e9d0))
+
 ## [9.0.0](https://github.com/vansergen/rpc-request/compare/v8.0.1...v9.0.0) (2025-05-04)
 
 ### ⚠ BREAKING CHANGES
