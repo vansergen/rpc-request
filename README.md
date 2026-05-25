@@ -14,11 +14,15 @@ The `Fetch` class accepts all parameters from `RequestInit` plus the following
 
 ```typescript
 import { Fetch } from "rpc-request";
-// 1. Transform the response by default
+// 1. Transform the response body. When omitted (the default) the raw
+//    `Response` is returned and `reject` is ignored — the caller is then
+//    responsible for inspecting `response.ok`.
 const transform = "json";
 // 2. Base url for the `.fetch()` method
 const base_url = new URL("http://worldtimeapi.org/");
-// 3. Throws an error when `response.ok !== true`
+// 3. Throws an `UnsuccessfulFetch` when `response.ok !== true`. Only takes
+//    effect when `transform` is set — without a transform the raw `Response`
+//    is returned regardless of status.
 const reject = true;
 // Plus anything from `RequestInit`
 const headers = { "X-TOKEN": "123" };
