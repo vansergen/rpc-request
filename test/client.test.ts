@@ -1,21 +1,92 @@
-/* eslint sort-imports: "warn" */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import { deepStrictEqual, fail, ok } from "node:assert";
-import { Blob } from "node:buffer";
 import { STATUS_CODES } from "node:http";
-import { MockAgent, setGlobalDispatcher } from "undici";
+import { afterEach, describe, mock, test } from "node:test";
 import Fetch, { UnsuccessfulFetch } from "../index.js";
+
+interface IMockExpected {
+  url?: URL | string;
+  method?: string;
+  headers?:
+    | ((h: Record<string, string | undefined>) => boolean)
+    | Record<string, string>;
+  body?: string;
+}
+
+interface IMockReply {
+  status?: number;
+  headers?: Record<string, string>;
+  body?: BodyInit | null;
+}
+
+/**
+ * Replace `globalThis.fetch` for the next single call. Validates the
+ * request against `expected` and resolves with a synthetic `Response`
+ * built from `reply`.
+ */
+function mockFetch(expected: IMockExpected, reply: IMockReply = {}): void {
+  mock.method(
+    globalThis,
+    "fetch",
+    (
+      input: Request | URL | string,
+      requestInit: RequestInit = {},
+    ): Promise<Response> => {
+      const inputUrl =
+        input instanceof URL
+          ? input.href
+          : typeof input === "string"
+            ? input
+            : input.url;
+
+      if (typeof expected.url !== "undefined") {
+        deepStrictEqual(inputUrl, expected.url.toString());
+      }
+      if (typeof expected.method !== "undefined") {
+        // Native `fetch` treats a missing `method` as GET.
+        const actualMethod = (requestInit.method ?? "GET").toUpperCase();
+        deepStrictEqual(actualMethod, expected.method.toUpperCase());
+      }
+      if (typeof expected.headers !== "undefined") {
+        const actual = new Headers(requestInit.headers);
+        const actualObj: Record<string, string | undefined> = {};
+        actual.forEach((value, key) => {
+          actualObj[key] = value;
+        });
+        if (typeof expected.headers === "function") {
+          ok(expected.headers(actualObj));
+        } else {
+          for (const [key, value] of Object.entries(expected.headers)) {
+            deepStrictEqual(actualObj[key.toLowerCase()], value);
+          }
+        }
+      }
+      if (typeof expected.body !== "undefined") {
+        deepStrictEqual(requestInit.body, expected.body);
+      }
+      const status = reply.status ?? 200;
+      return Promise.resolve(
+        new Response(reply.body ?? null, {
+          status,
+          statusText: STATUS_CODES[status] ?? "",
+          ...(reply.headers ? { headers: reply.headers } : {}),
+        }),
+      );
+    },
+    { times: 1 },
+  );
+}
 
 describe("Fetch", () => {
   const port = 4321;
   const prefix = "/api/";
   const base_url = new URL(`http://www.example.com:${port}${prefix}`);
 
-  const mockAgent = new MockAgent();
-  mockAgent.disableNetConnect();
-  setGlobalDispatcher(mockAgent);
-  const mockPool = mockAgent.get(base_url.origin);
+  afterEach(() => {
+    mock.restoreAll();
+  });
 
-  it("Uses the default options", () => {
+  test("Uses the default options", () => {
     const fetch = new Fetch();
     deepStrictEqual(fetch.reject, true);
     deepStrictEqual(fetch.base_url, null);
@@ -23,7 +94,7 @@ describe("Fetch", () => {
     deepStrictEqual(fetch.init, {});
   });
 
-  it("Rejects when no `base_url` is provided", async () => {
+  test("Rejects when no `base_url` is provided", async () => {
     const client = new Fetch();
     const path = "/v2/bank-transfer";
 
@@ -36,7 +107,7 @@ describe("Fetch", () => {
     }
   });
 
-  it("Returns raw response on not ok responses (transform === null)", async () => {
+  test("Returns raw response on not ok responses (transform === null)", async () => {
     const client = new Fetch({ base_url });
     const path = "v2/bank-transfer";
     const method = "POST";
@@ -45,9 +116,19 @@ describe("Fetch", () => {
     const status = 404;
     const expected = { message: "v2 is not supported" };
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method, headers, body })
-      .reply(status, expected);
+    mockFetch(
+      {
+        url: new URL(path, base_url),
+        method,
+        headers,
+        body,
+      },
+      {
+        status,
+        body: JSON.stringify(expected),
+        headers: { "Content-Type": "application/json" },
+      },
+    );
 
     deepStrictEqual(client.base_url, base_url);
     const response = await client.fetch<Response>(path, {
@@ -63,19 +144,23 @@ describe("Fetch", () => {
     deepStrictEqual(actual, expected);
   });
 
-  it("Rejects not ok responses by default", async () => {
+  test("Rejects not ok responses by default", async () => {
     const client = new Fetch({ base_url, transform: "json" });
     const path = "v2/bank-transfer";
     const method = "POST";
     const headers = { "x-token-secret": "SuperSecretToken" };
     const body = JSON.stringify({ recepient: "1234567890", amount: "100" });
-
     const status = 404;
     const expected = { message: "v2 is not supported" };
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method, headers, body })
-      .reply(status, expected);
+    mockFetch(
+      { url: new URL(path, base_url), method, headers, body },
+      {
+        status,
+        body: JSON.stringify(expected),
+        headers: { "Content-Type": "application/json" },
+      },
+    );
 
     try {
       deepStrictEqual(client.base_url, base_url);
@@ -92,7 +177,7 @@ describe("Fetch", () => {
     }
   });
 
-  it("Rewrites the default options", async () => {
+  test("Rewrites the default options", async () => {
     const client = new Fetch({
       base_url,
       transform: "text",
@@ -104,10 +189,14 @@ describe("Fetch", () => {
     const status = 404;
     const expected = { message: "not_ok" };
 
-    mockAgent
-      .get(new URL(path, url).origin)
-      .intercept({ path: new URL(path, url).toString(), method: "GET" })
-      .reply(status, expected);
+    mockFetch(
+      { url: new URL(path, url), method: "GET" },
+      {
+        status,
+        body: JSON.stringify(expected),
+        headers: { "Content-Type": "application/json" },
+      },
+    );
 
     deepStrictEqual(client.base_url, base_url);
     deepStrictEqual(client.transform, "text");
@@ -123,17 +212,17 @@ describe("Fetch", () => {
     deepStrictEqual(response, expected);
   });
 
-  it("Transforms the response to `ArrayBuffer`", async () => {
+  test("Transforms the response to `ArrayBuffer`", async () => {
     const transform = "arrayBuffer";
     const headers = { "x-token-secret": "SuperSecretToken" };
     const client = new Fetch({ base_url, transform, headers });
     const path = "v2/ok";
-    const status = 200;
     const expected = { message: "ok" };
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method: "GET", headers })
-      .reply(status, expected);
+    mockFetch(
+      { url: new URL(path, base_url), method: "GET", headers },
+      { body: JSON.stringify(expected) },
+    );
 
     deepStrictEqual(client.base_url, base_url);
     const response = await client.fetch<ArrayBuffer>(path);
@@ -143,17 +232,17 @@ describe("Fetch", () => {
     deepStrictEqual(JSON.parse(text), expected);
   });
 
-  it("Transforms the response to `Buffer`", async () => {
+  test("Transforms the response to `Buffer`", async () => {
     const transform = "buffer";
     const headers = { "x-token-secret": "SuperSecretToken" };
     const client = new Fetch({ base_url, transform, headers });
     const path = "v2/ok";
-    const status = 200;
     const expected = { message: "ok" };
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method: "GET", headers })
-      .reply(status, expected);
+    mockFetch(
+      { url: new URL(path, base_url), method: "GET", headers },
+      { body: JSON.stringify(expected) },
+    );
 
     deepStrictEqual(client.base_url, base_url);
     const response = await client.fetch<Buffer>(path);
@@ -163,20 +252,20 @@ describe("Fetch", () => {
     deepStrictEqual(JSON.parse(text), expected);
   });
 
-  it("Transforms the response to `Blob`", async () => {
+  test("Transforms the response to `Blob`", async () => {
     const transform = "blob";
     const method = "PATCH";
     const headers = { "x-token-secret": "SuperSecretToken" };
     const client = new Fetch({ base_url, transform, headers, method });
     const path = "v2/ok";
-    const status = 200;
     const expected = { message: "ok" };
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method, headers })
-      .reply(status, expected);
-    deepStrictEqual(client.base_url, base_url);
+    mockFetch(
+      { url: new URL(path, base_url), method, headers },
+      { body: JSON.stringify(expected) },
+    );
 
+    deepStrictEqual(client.base_url, base_url);
     const response = await client.fetch<Blob>(path);
     ok(response instanceof Blob);
 
@@ -184,56 +273,57 @@ describe("Fetch", () => {
     deepStrictEqual(JSON.parse(text), expected);
   });
 
-  it("Transforms the response to `formData`", async () => {
+  test("Transforms the response to `formData`", async () => {
     const transform = "formData";
     const method = "GET";
     const headers = { "x-token-secret": "SuperSecretToken" };
     const client = new Fetch({ base_url, transform, headers, method });
     const path = "v2/ok";
-    const status = 200;
     const form = new FormData();
     form.append("description", "Some text here");
     const file_content = ["str1\n", "str2\n"];
-    const file = new Blob(file_content, {
-      type: "text/plain",
-      endings: "native",
-    });
+    const file = new Blob(file_content, { type: "text/plain" });
     form.append("file", file);
-    const temp = new Response(form);
-    const ct = temp.headers.get("Content-Type");
+    const tempResponse = new Response(form);
+    const ct = tempResponse.headers.get("Content-Type");
     const [, boundary] = ct?.split("boundary=") ?? [];
     if (!boundary) {
       throw new Error("Content-Type is missing from the response");
     }
-    const expected = await temp.text();
+    const body = await tempResponse.text();
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method, headers })
-      .reply(status, expected, {
+    mockFetch(
+      { url: new URL(path, base_url), method, headers },
+      {
+        body,
         headers: {
           "Content-Type": `multipart/form-data; boundary=${boundary}`,
         },
-      });
+      },
+    );
 
     const response = await client.fetch<FormData>(path);
     ok(response instanceof FormData);
-    deepStrictEqual(form.get("description"), "Some text here");
-    const actual_file = form.get("file");
+    // Inspect the PARSED response, not the original `form` we used to
+    // build the wire payload — that's what proves the transform actually
+    // round-tripped through the body.
+    deepStrictEqual(response.get("description"), "Some text here");
+    const actual_file = response.get("file");
     ok(actual_file instanceof Blob);
     deepStrictEqual(await actual_file.text(), file_content.join(""));
   });
 
-  it("Transforms the response to `string`", async () => {
+  test("Transforms the response to `string`", async () => {
     const transform = "text";
     const headers = { "x-token-secret": "SuperSecretToken" };
     const client = new Fetch({ base_url, transform, headers });
     const path = "v2/ok";
-    const status = 200;
     const expected = { message: "ok" };
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method: "GET", headers })
-      .reply(status, expected);
+    mockFetch(
+      { url: new URL(path, base_url), method: "GET", headers },
+      { body: JSON.stringify(expected) },
+    );
 
     deepStrictEqual(client.base_url, base_url);
 
@@ -242,18 +332,21 @@ describe("Fetch", () => {
     deepStrictEqual(JSON.parse(response), expected);
   });
 
-  it("Transforms the response to `json`", async () => {
+  test("Transforms the response to `json`", async () => {
     const transform = "json";
     const method = "POST";
     const headers = { "x-token-secret": "SuperSecretToken" };
     const client = new Fetch({ base_url, transform, headers, method });
     const path = "v2/ok";
-    const status = 200;
     const expected = { message: "ok" };
 
-    mockPool
-      .intercept({ path: `${prefix}${path}`, method, headers })
-      .reply(status, expected);
+    mockFetch(
+      { url: new URL(path, base_url), method, headers },
+      {
+        body: JSON.stringify(expected),
+        headers: { "Content-Type": "application/json" },
+      },
+    );
 
     const response = await client.fetch<{ message: string }>(path);
     deepStrictEqual(response, expected);
@@ -271,16 +364,27 @@ describe("Fetch", () => {
     ] as const;
 
     for (const method of methods) {
-      it(`Makes a ${method.toUpperCase()} request with the .${method}() method`, async () => {
+      test(`Makes a ${method.toUpperCase()} request with the .${method}() method`, async () => {
         const transform = "json";
         const headers = { "x-token-secret": "SuperSecretToken" };
         const client = new Fetch({ base_url, transform, headers });
         const path = "v2/ok";
         const status = 200;
         const expected = { message: "ok" };
-        mockPool
-          .intercept({ path: `${prefix}${path}`, method, headers })
-          .reply(status, expected);
+        const responseBody =
+          method === "head" ? null : JSON.stringify(expected);
+        mockFetch(
+          {
+            url: new URL(path, base_url),
+            method: method.toUpperCase(),
+            headers,
+          },
+          {
+            status,
+            body: responseBody,
+            headers: { "Content-Type": "application/json" },
+          },
+        );
 
         deepStrictEqual(client.base_url, base_url);
 
