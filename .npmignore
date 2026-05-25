@@ -1,15 +1,15 @@
 # Coverage directory used by c8
-coverage
+coverage/*
 
 # GitHub folder
-.github
+.github/*
 
 # Tests
-test
-dist/test
+test/*
+dist/test/*
 
 # Documentation
-docs
+docs/*
 
 # Commitlint config - https://commitlint.js.org/
 .commitlintrc.json
@@ -22,9 +22,6 @@ eslint.config.js
 
 # lint-staged config - https://github.com/okonet/lint-staged
 .lintstagedrc.json
-
-# mocha config - https://github.com/mochajs/mocha
-.mocharc.json
 
 # Prettier ignore
 .prettierignore
@@ -45,5 +42,5 @@ typedoc.json
 CODE_OF_CONDUCT.md
 
 # Source files
-src/
+src/*
 index.ts

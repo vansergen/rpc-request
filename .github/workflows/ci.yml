@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22, 23]
+        node-version: [24, 26]
 
     steps:
       - uses: actions/checkout@v6
@@ -29,14 +29,17 @@ jobs:
       - name: ESLint
         run: npm run eslint
 
-      - name: commitlint
+      - name: Commitlint
         run: npm run commitlint
 
       - name: Tests
         run: npm test
 
-      - name: Publish (test)
-        run: npm publish --dry-run
+      - name: Build
+        run: npm run build
+
+      - name: Pack (test)
+        run: npm pack --dry-run
 
       - name: Docs
         run: npm run docs:build
@@ -47,12 +50,26 @@ jobs:
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.github_token }}
+          flag-name: Node.js v${{ matrix.node-version }}
+          parallel: true
+
+  coverage:
+    needs: [test]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
 
   release:
     if: ${{ github.ref == 'refs/heads/main' }}
 
-    needs: [test]
+    needs: [test, coverage]
 
     runs-on: ubuntu-latest
 
@@ -61,7 +78,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           check-latest: true
 
       - name: Import GPG key
